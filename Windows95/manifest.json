@@ -590,6 +590,45 @@
       "Type": "Toggle",
       "Label": "Показывать \"Live\" события",
       "Value": true
+    },
+    "GlitchDonations": {
+      "Type": "Toggle",
+      "Label": "Глитч-эффект донатов",
+      "Value": true
+    },
+    "ShowConfetti": {
+      "Type": "Toggle",
+      "Label": "Конфетти при донатах",
+      "Value": true
+    },
+    "EnableSound": {
+      "Type": "Toggle",
+      "Label": "Звук при донатах и событиях",
+      "Value": false
+    },
+    "SoundVolume": {
+      "Type": "Slider",
+      "Label": "Громкость звука (%)",
+      "Value": 70,
+      "Min": 0,
+      "Max": 100
+    },
+    "AutoNameColor": {
+      "Type": "Toggle",
+      "Label": "Автоцвет ника (по имени)",
+      "Value": false
+    },
+    "EnableSnow": {
+      "Type": "Toggle",
+      "Label": "Снегопад на фоне",
+      "Value": false
+    },
+    "SnowAmount": {
+      "Type": "Slider",
+      "Label": "Плотность снега",
+      "Value": 5,
+      "Min": 1,
+      "Max": 10
     }
   }
 }

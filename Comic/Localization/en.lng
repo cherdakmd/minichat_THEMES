@@ -456,6 +456,13 @@
     "ShowAvatars": "Показывать аватары",
     "ShowBadges": "Показывать значки",
     "UseColorUserName": "Использовать оригинальный цвет имени",
-    "ShowLive": "Показывать \"Live\" события"
+    "ShowLive": "Показывать \"Live\" события",
+    "GlitchDonations": "Glitch effect on donations",
+    "ShowConfetti": "Confetti on donations",
+    "EnableSound": "Sound on donations and events",
+    "SoundVolume": "Sound volume",
+    "AutoNameColor": "Auto name color (name hash)",
+    "EnableSnow": "Snowfall background",
+    "SnowAmount": "Snow density"
   }
 }

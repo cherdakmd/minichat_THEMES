@@ -109,6 +109,45 @@
 Время сообщения: `MessageTime(message)` берёт `message.Time` (Date или ISO-строка),
 если поле пришло из чата; иначе фиксирует время первого появления сообщения в оверлее.
 
+## Эффекты v1.2 (ThemeFX)
+
+В каждой теме лежат общие файлы `effects.js` + `effects.css` — библиотека **ThemeFX**:
+
+| Свойство | По умолчанию | Что делает |
+|---|---|---|
+| `GlitchDonations` | вкл | RGB-split глитч на строках донатов (класс `.fx-glitch` на контейнере) |
+| `ShowConfetti` | вкл | залп конфетти с canvas-частиц при донате |
+| `EnableSound` | выкл | звук донатов/событий (WebAudio-синтез, без файлов) |
+| `SoundVolume` | 70 | громкость |
+| `AutoNameColor` | выкл | детерминированный цвет ника по хешу имени — `ThemeFX.HashColor(userName)` |
+| `EnableSnow` + `SnowAmount` | выкл / 5 | снегопад на фоне (canvas) |
+
+Темы могут добавлять свои эффекты поверх: Space — звёзды/метеоры/туманность/HUD-таймер
+(`EnableStars`, `StarAmount`, `EnableMeteors`, `EnableNebula`, `ShowHud`),
+CRT — развёртка/мерцание/выпуклость/OSD/помехи (`ShowScanlines`, `ScreenFlicker`,
+`ScreenCurve`, `ShowOsd`, `NoiseOnDonation`), Cyberpunk — глитч-заголовок,
+сканлайн-полоса и наклон карточек (`ShowGlitchTitle`, `HeaderText`, `ScanlineSweep`, `SkewRows`).
+
+Подключение в теме:
+
+```html
+<link href="effects.css" rel="stylesheet">
+<script src="effects.js"></script>
+```
+
+```js
+// template.js: инициализация + реакция на события чата
+mounted: function () {
+	if (typeof ThemeFX !== 'undefined')
+		ThemeFX.init(this);   // погода на фоне, привязка vm
+},
+// и в обёртке GetAction:
+if (typeof ThemeFX !== 'undefined')
+	ThemeFX.action(data);     // конфетти + звук на донатах/событиях
+```
+
+Свойство `message.Time`, если чат его передаёт, используется для времени сообщения.
+
 ## Localization/en.lng
 
 Те же ключи, что и в `Properties`, но со строками-переводами. Поля `Value` не

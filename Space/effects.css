@@ -1,0 +1,41 @@
+/* ============================================================
+   ThemeFX — стили эффектов (общие для всех тем)
+   ============================================================ */
+
+/* Canvas-слои: погода (фон) и конфетти (передний план) */
+.fx-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.fx-weather {
+  z-index: 0;
+}
+
+.fx-confetti {
+  z-index: 9999;
+}
+
+/* ---------- Глитч донатов (RGB-split + дрожание) ----------
+   Работает на строках с классом highlighted (донаты/выделенные).
+   Контейнер .messages получает .fx-glitch через MessagesClass. */
+@keyframes fx-glitch-anim {
+  0%   { text-shadow: none; transform: translate(0, 0) skewX(0); }
+  10%  { text-shadow: 2px 0 0 rgba(255, 0, 90, 0.85), -2px 0 0 rgba(0, 255, 234, 0.85); transform: translate(1px, -1px) skewX(-1.5deg); }
+  20%  { text-shadow: -3px 0 0 rgba(255, 0, 90, 0.85), 3px 0 0 rgba(0, 255, 234, 0.85); transform: translate(-2px, 1px) skewX(1.5deg); }
+  30%  { text-shadow: 2px 0 0 rgba(255, 0, 90, 0.85), -2px 0 0 rgba(0, 255, 234, 0.85); transform: translate(1px, 0) skewX(-1deg); }
+  40%  { text-shadow: none; transform: translate(0, 0) skewX(0); }
+  50%  { text-shadow: 3px 0 0 rgba(255, 0, 90, 0.8), -3px 0 0 rgba(0, 255, 234, 0.8); transform: translate(2px, -1px) skewX(2deg); }
+  60%  { text-shadow: -2px 0 0 rgba(255, 0, 90, 0.8), 2px 0 0 rgba(0, 255, 234, 0.8); transform: translate(-1px, 1px) skewX(-2deg); }
+  70%  { text-shadow: none; transform: translate(0, 0) skewX(0); }
+  80%  { text-shadow: 1px 0 0 rgba(255, 0, 90, 0.7), -1px 0 0 rgba(0, 255, 234, 0.7); transform: translate(1px, 0); }
+  100% { text-shadow: none; transform: translate(0, 0) skewX(0); }
+}
+
+.fx-glitch .text-message.highlighted:not(.deleted) {
+  animation: fx-glitch-anim 2.8s steps(2, jump-none) infinite;
+}

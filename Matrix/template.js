@@ -13,6 +13,9 @@
 		if (!HasSettings)
 			return;
 
+		if (typeof ThemeFX !== 'undefined')
+			ThemeFX.action(data);
+
 		switch (data.Type) {
 			case "Live":
 				if (data.Type != "Donation")
@@ -54,6 +57,11 @@
 			LiveEvents: function () {
 				if (!this.ShowLive) return [];
 				return this.Messages.filter(function (m) { return m.type === 'Live'; });
+			},
+			MessagesClass: function () {
+				return {
+					'fx-glitch': this.GlitchDonations !== false,
+				};
 			},
 			TextStyle: function () {
 				var style = { fontSize: this.TextSize / 16 + 'em' };
@@ -125,6 +133,14 @@
 				var h = t.getHours(), mm = t.getMinutes();
 				return (h < 10 ? '0' : '') + h + ':' + (mm < 10 ? '0' : '') + mm;
 			},
+			NameStyle: function (m) {
+				/* Автоцвет по хешу имени (детерминированный) */
+				if (this.AutoNameColor)
+					return { color: (typeof ThemeFX !== 'undefined') ? ThemeFX.HashColor(m.UserName) : this.ColorUserName };
+				if (this.UseColorUserName)
+					return { color: m.Color == undefined ? this.ColorUserName : m.Color };
+				return { color: this.ColorUserName };
+			},
 			RainColText: function (n) {
 				var len = 10 + Math.floor(seeded(n * 3.7) * 12);
 				var s = '';
@@ -143,6 +159,10 @@
 					opacity: 0.3 + r3 * 0.45,
 				};
 			},
+		},
+		mounted: function () {
+			if (typeof ThemeFX !== 'undefined')
+				ThemeFX.init(this);
 		},
 	});
 })();

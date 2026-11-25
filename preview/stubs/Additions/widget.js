@@ -68,28 +68,23 @@
 		});
 	}
 
-	loadManifest().then(function (manifest) {
-		if (!manifest || !manifest.Properties) return;
-		var t = R();
-		Object.keys(manifest.Properties).forEach(function (k) {
-			var v = manifest.Properties[k];
-			if (v && v.Value !== undefined) {
-				// Новые ключи добавляем в реактивные data через $data:
-				// присвоение через прокси компонента попадает в ctx и не отслеживается Vue
-				if (t.$data && !(k in t.$data))
-					t.$data[k] = v.Value;
-				else
-					t[k] = v.Value;
-			}
-		});
-	});
-
 	function domReady(fn) {
 		if (document.readyState !== 'loading') fn();
 		else document.addEventListener('DOMContentLoaded', fn);
 	}
-	domReady(function () {
-		vm = app.mount('#widget');
+
+	// Важно: монтируем Vue ТОЛЬКО после применения свойств манифеста,
+	// чтобы все настройки были реактивными с самого начала
+	loadManifest().then(function (manifest) {
+		if (manifest && manifest.Properties) {
+			Object.keys(manifest.Properties).forEach(function (k) {
+				var v = manifest.Properties[k];
+				if (v && v.Value !== undefined) state[k] = v.Value;
+			});
+		}
+		domReady(function () {
+			vm = app.mount('#widget');
+		});
 	});
 
 	/* ---------- GetAction (для обёрток в template.js тем) ---------- */

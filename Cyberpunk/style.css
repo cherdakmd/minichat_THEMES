@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 0 6px;
+  box-sizing: border-box;
+}
+
+.messages {
+  position: relative;
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+}
+
+/* ---------- Глитч-заголовок ---------- */
+.cyber-title {
+  position: relative;
+  margin: 6px 2px 10px;
+  color: var(--accent, #FCEE0A);
+  font-size: 0.92em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.9);
+  width: fit-content;
+  max-width: 100%;
+}
+
+.cyber-title::before,
+.cyber-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  text-shadow: none;
+}
+
+.cyber-title::before {
+  color: #00F0FF;
+  clip-path: polygon(0 0, 100% 0, 100% 46%, 0 46%);
+  animation: cp-glitch-a 2.6s steps(1) infinite;
+}
+
+.cyber-title::after {
+  color: #FF2A6A;
+  clip-path: polygon(0 52%, 100% 52%, 100% 100%, 0 100%);
+  animation: cp-glitch-b 2.1s steps(1) infinite;
+}
+
+@keyframes cp-glitch-a {
+  0%, 84%, 100% { transform: translate(0, 0); opacity: 0.8; }
+  86%  { transform: translate(-3px, -1px); }
+  88%  { transform: translate(3px, 1px); }
+  90%  { transform: translate(-2px, 0); }
+  92%  { transform: translate(0, 0); }
+}
+
+@keyframes cp-glitch-b {
+  0%, 78%, 100% { transform: translate(0, 0); opacity: 0.8; }
+  80%  { transform: translate(3px, 1px); }
+  82%  { transform: translate(-3px, -1px); }
+  84%  { transform: translate(2px, 0); }
+  86%  { transform: translate(0, 0); }
+}
+
+/* ---------- Сканлайн-полоса ---------- */
+.scanline-sweep {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: -4%;
+  height: 2px;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.45), transparent);
+  animation: cp-sweep 7s linear infinite;
+}
+
+@keyframes cp-sweep {
+  from { top: -4%; }
+  to   { top: 104%; }
+}
+
+/* ---------- Карточки (срезанные углы) ---------- */
+.display_message {
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  margin-top: 6px;
+}
+
+.div_message {
+  padding: var(--pad, 10px);
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-table;
+  word-break: break-word;
+  background: var(--bg, rgba(10, 14, 26, 0.72));
+  box-shadow: inset 0 0 0 1px var(--accent-weak, rgba(252, 238, 10, 0.4)),
+    inset 4px 0 0 var(--accent, #FCEE0A);
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+.messages.cyber-skew .div_message {
+  transform: skewX(-6deg);
+  transform-origin: bottom left;
+}
+
+.div_message img {
+  height: 1em;
+  width: auto;
+  margin-bottom: -0.15em;
+  margin-right: 0.2em;
+}
+
+.avatar img {
+  border-radius: var(--avradius, 0%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+  outline: 1px solid var(--accent-weak, rgba(252, 238, 10, 0.5));
+}
+
+.no-avatar {
+  display: none !important;
+}
+
+.emoticon {
+  height: 1.5em;
+  width: auto;
+  margin-bottom: -0.4em;
+}
+
+.username {
+  display: inline-block;
+  margin: 0 0.35em 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.timestamp {
+  color: var(--accent, #FCEE0A);
+  opacity: 0.85;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+}
+
+.text-message,
+.text-message a {
+  color: rgba(255, 255, 255, 1);
+}
+
+.text-message.reply {
+  color: #00F0FF !important;
+}
+
+.text-message.highlighted {
+  background: rgba(252, 238, 10, 0.08);
+  color: #FFFDE8;
+}
+
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+.text-message.deleted {
+  color: rgba(160, 180, 200, 0.45) !important;
+  text-decoration: line-through;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+  outline: 1px solid var(--accent-weak, rgba(252, 238, 10, 0.5));
+}
+
+/* События Live: алерт Найт-Сити */
+.live_event {
+  margin-top: 6px;
+  padding: var(--pad, 10px);
+  color: #FF2A6A;
+  letter-spacing: 0.06em;
+  background: var(--bg, rgba(10, 14, 26, 0.72));
+  box-shadow: inset 0 0 0 1px rgba(255, 42, 106, 0.5), inset 4px 0 0 #FF2A6A;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+:root {
+  --font: 'Russo One', Arial, sans-serif;
+  --font-weight: 400;
+}

@@ -457,6 +457,13 @@
     "ColorUserName": "UserName Color",
     "UseColorUserName": "Use Original Color UserName",
     "DisplayConsoleCursor": "Display Console Cursor",
-    "ShowLive": "Show images in messages"
+    "ShowLive": "Show images in messages",
+    "GlitchDonations": "Glitch effect on donations",
+    "ShowConfetti": "Confetti on donations",
+    "EnableSound": "Sound on donations and events",
+    "SoundVolume": "Sound volume",
+    "AutoNameColor": "Auto name color (name hash)",
+    "EnableSnow": "Snowfall background",
+    "SnowAmount": "Snow density"
   }
 }
