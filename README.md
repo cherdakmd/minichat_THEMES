@@ -32,9 +32,9 @@
 
 ## ⬇️ Скачать
 
-Готовые ZIP-архивы — на странице [**Releases**](https://github.com/cherdakmd/minichat_THEMES/releases/latest):
-скачай отдельную тему (например `Minichat-Theme-Neon.zip`) или общий архив со всеми темами
-(`Minichat-THEMES-all.zip`).
+Готовые ZIP-архивы — в [**Releases**](https://github.com/cherdakmd/minichat_THEMES/releases/latest):
+отдельная тема (`Minichat-Theme-Neon.zip`) или общий архив со всеми темами (`Minichat-THEMES-all.zip`).
+Прямые ссылки — в описании релиза, тот же набор лежит в папке [`release/`](release/).
 
 ## 🚀 Установка
 
