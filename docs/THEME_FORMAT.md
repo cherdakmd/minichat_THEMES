@@ -81,6 +81,34 @@
 - `ShowLive` — показывать Live-события (подписки и т.п.);
 - `DisplayConsoleCursor` — консольный курсор (темы «в терминале»).
 
+### Пакет настроек v1.1 (есть во всех темах репозитория)
+
+| Свойство | Тип | Что делает |
+|---|---|---|
+| `BorderRadius` | Slider 0–30 | скругление краёв карточек/пузырей/строк |
+| `BorderWidth` | Slider 0–8 | толщина рамки карточек |
+| `BackgroundColor` + `BackgroundOpacity` | Color + Slider | цвет и плотность подложки сообщений (rgba считается в `template.js`) |
+| `AccentColor` | Color | акцент: курсор, рамки подсветки, Live-события, время |
+| `TextShadow` | Select | тень текста: нет / мягкая / жёсткая (пиксель) / свечение / обводка |
+| `TextShadowColor` | Color | цвет тени |
+| `ShowTimestamps` | Toggle | показывать время сообщения (`MessageTime(message)`) |
+| `Padding` | Slider 0–24 | внутренние отступы сообщений |
+| `FontWeight` | Select | обычный / жирный шрифт |
+| `LetterSpacing` | Slider 0–6 | межбуквенный интервал (em от базового кегля) |
+| `AnimationSpeed` | Slider 100–3000 мс | длительность animate.css-анимаций (через `--animate-duration`) |
+| `AvatarSize` | Slider 50–200% | размер аватара |
+| `AvatarShape` | Select | круглая / скруглённая / квадратная |
+| `MaxWidth` | Slider 40–100% | максимальная ширина блока сообщений |
+
+Механика: `TextStyle` в `template.js` собирает инлайн-стили и CSS-переменные
+(`--radius`, `--bg`, `--accent`, `--accent-weak`, `--avsize`, `--avradius`,
+`--msgw`, `--maxw`, `--pad`, `--animate-duration`), а `style.css` использует их
+с фолбэками, равными внешнему виду темы по умолчанию. Поэтому дефолтные
+значения манифеста всегда воспроизводят «родной» вид темы.
+
+Время сообщения: `MessageTime(message)` берёт `message.Time` (Date или ISO-строка),
+если поле пришло из чата; иначе фиксирует время первого появления сообщения в оверлее.
+
 ## Localization/en.lng
 
 Те же ключи, что и в `Properties`, но со строками-переводами. Поля `Value` не

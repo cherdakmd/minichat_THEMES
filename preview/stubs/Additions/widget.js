@@ -73,7 +73,14 @@
 		var t = R();
 		Object.keys(manifest.Properties).forEach(function (k) {
 			var v = manifest.Properties[k];
-			if (v && v.Value !== undefined) t[k] = v.Value;
+			if (v && v.Value !== undefined) {
+				// Новые ключи добавляем в реактивные data через $data:
+				// присвоение через прокси компонента попадает в ctx и не отслеживается Vue
+				if (t.$data && !(k in t.$data))
+					t.$data[k] = v.Value;
+				else
+					t[k] = v.Value;
+			}
 		});
 	});
 
@@ -192,6 +199,7 @@
 
 		attach: function (rootVm) {
 			vm = rootVm;
+			this.vm = rootVm; // для отладки и тестов
 			this.start();
 		},
 
@@ -231,6 +239,7 @@
 			if (Math.random() < 0.45) badges.push({ Image: { Default: makeBadge(BADGES[Math.floor(Math.random() * BADGES.length)]) } });
 			return {
 				GUID: nextGUID(),
+				Time: new Date().toISOString(),
 				Service: SERVICES[Math.floor(Math.random() * SERVICES.length)],
 				Avatar: { Default: makeAvatar(idx) },
 				badges: badges,
@@ -276,6 +285,7 @@
 				var idx = Math.floor(Math.random() * USERS.length);
 				this.pushMessage({
 					GUID: nextGUID(),
+					Time: new Date().toISOString(),
 					Service: SERVICES[Math.floor(Math.random() * SERVICES.length)],
 					Avatar: { Default: makeAvatar(idx) },
 					badges: [],
@@ -290,6 +300,7 @@
 			} else if (kind === 'live') {
 				this.pushMessage({
 					GUID: nextGUID(),
+					Time: new Date().toISOString(),
 					type: 'Live',
 					isDeleted: false,
 					EventText: LIVE_EVENTS[Math.floor(Math.random() * LIVE_EVENTS.length)],

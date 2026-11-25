@@ -42,16 +42,16 @@ html, body {
 .div_message {
   display: inline-table;
   width: auto;
-  max-width: 100%;
-  padding: 0.45em 0.85em;
-  border-radius: 14px;
+  max-width: var(--maxw, 100%);
+  padding: var(--pad, 12px);
+  border-radius: var(--radius, 14px);
   position: relative;
 }
 
 /* Стиль карточек: стекло */
 .card-glass .div_message {
-  background: rgba(8, 12, 30, 0.55);
-  border: 1px solid rgba(0, 240, 255, 0.35);
+  background: var(--bg, rgba(8, 12, 30, 0.55));
+  border: var(--borderw, 1px) solid rgba(0, 240, 255, 0.35);
   box-shadow: 0 0 calc(var(--glow) * 2px) rgba(0, 240, 255, 0.18),
     inset 0 0 calc(var(--glow) * 2px) rgba(255, 62, 240, 0.08);
 }
@@ -59,8 +59,8 @@ html, body {
 /* Стиль карточек: неоновая рамка */
 .card-border .div_message {
   background: transparent;
-  border: 2px solid #FF3EF0;
-  border-radius: 10px;
+  border: var(--borderw, 2px) solid var(--accent, #FF3EF0);
+  border-radius: var(--radius, 10px);
   box-shadow: 0 0 calc(var(--glow) * 2.5px) rgba(255, 62, 240, 0.55),
     0 0 calc(var(--glow) * 6px) rgba(0, 240, 255, 0.25),
     inset 0 0 calc(var(--glow) * 1.5px) rgba(255, 62, 240, 0.25);
@@ -82,12 +82,12 @@ html, body {
 
 /* Аватар */
 .avatar img {
-  border-radius: 50%;
+  border-radius: var(--avradius, 50%);
   opacity: 0;
   transition: opacity 0.25s ease;
   aspect-ratio: 1;
   object-fit: cover;
-  border: 2px solid rgba(0, 240, 255, 0.6);
+  border: var(--borderw, 2px) solid var(--accent-weak, rgba(0, 240, 255, 0.6));
   box-shadow: 0 0 calc(var(--glow) * 1.5px) rgba(0, 240, 255, 0.6);
 }
 
@@ -128,7 +128,7 @@ html, body {
 
 .text-message.highlighted {
   background: linear-gradient(90deg, rgba(0, 240, 255, 0.22), rgba(255, 62, 240, 0.22));
-  border: 1px solid rgba(255, 62, 240, 0.6);
+  border: 1px solid var(--accent, rgba(255, 62, 240, 0.6));
   color: #FFF;
 }
 
@@ -163,7 +163,21 @@ html, body {
   margin-top: 0.4em;
   padding: 0.35em 0.8em;
   color: #00F0FF;
-  border-left: 2px solid #FF3EF0;
+  border-left: 2px solid var(--accent, #FF3EF0);
   text-shadow: 0 0 calc(var(--glow) * 1.2px) rgba(0, 240, 255, 0.8);
   letter-spacing: 0.04em;
+}
+
+/* ==== Настройки v1.1: размер и форма аватаров, время сообщений ==== */
+.avatar img {
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+}
+
+.timestamp {
+  color: var(--accent, #FF3EF0);
+  opacity: 0.7;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  flex: 0 0 auto;
 }

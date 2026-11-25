@@ -10,6 +10,72 @@
       "Label": "The text of a deleted message",
       "Value": "[Message deleted]"
     },
+    "BorderRadius": "Corner rounding",
+    "BorderWidth": "Border width",
+    "BackgroundColor": "Message background color",
+    "AccentColor": "Accent color",
+    "TextShadow": {
+      "Label": "Text shadow",
+      "Enumerate": [
+        {
+          "Value": "none",
+          "Label": "No shadow"
+        },
+        {
+          "Value": "soft",
+          "Label": "Soft"
+        },
+        {
+          "Value": "hard",
+          "Label": "Hard (pixel)"
+        },
+        {
+          "Value": "glow",
+          "Label": "Glow"
+        },
+        {
+          "Value": "outline",
+          "Label": "Outline"
+        }
+      ]
+    },
+    "TextShadowColor": "Text shadow color",
+    "ShowTimestamps": "Show message time",
+    "Padding": "Message padding",
+    "FontWeight": {
+      "Label": "Font weight",
+      "Enumerate": [
+        {
+          "Value": "normal",
+          "Label": "Normal"
+        },
+        {
+          "Value": "bold",
+          "Label": "Bold"
+        }
+      ]
+    },
+    "LetterSpacing": "Letter spacing",
+    "AnimationSpeed": "Animation duration (ms)",
+    "AvatarSize": "Avatar size",
+    "AvatarShape": {
+      "Label": "Avatar shape",
+      "Enumerate": [
+        {
+          "Value": "round",
+          "Label": "Circle"
+        },
+        {
+          "Value": "rounded",
+          "Label": "Rounded"
+        },
+        {
+          "Value": "square",
+          "Label": "Square"
+        }
+      ]
+    },
+    "MaxWidth": "Maximum messages width",
     "ShowEffect": {
       "Label": "Show Effect",
       "Enumerate": [

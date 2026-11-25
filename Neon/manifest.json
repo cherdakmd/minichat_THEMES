@@ -24,6 +24,144 @@
       "Label": "Текст удаленного сообщения",
       "Value": "[Сообщение удалено]"
     },
+    "BorderRadius": {
+      "Type": "Slider",
+      "Label": "Скругление краёв (px)",
+      "Value": 14,
+      "Min": 0,
+      "Max": 30
+    },
+    "BorderWidth": {
+      "Type": "Slider",
+      "Label": "Толщина рамки (px)",
+      "Value": 2,
+      "Min": 0,
+      "Max": 8
+    },
+    "BackgroundColor": {
+      "Type": "Color",
+      "Label": "Цвет подложки сообщений",
+      "Value": "#080C1E"
+    },
+    "BackgroundOpacity": {
+      "Type": "Slider",
+      "Label": "Плотность подложки (%)",
+      "Value": 55,
+      "Min": 0,
+      "Max": 100
+    },
+    "AccentColor": {
+      "Type": "Color",
+      "Label": "Акцентный цвет",
+      "Value": "#FF3EF0"
+    },
+    "TextShadow": {
+      "Type": "Select",
+      "Label": "Тень текста",
+      "Value": "none",
+      "Enumerate": [
+        {
+          "Value": "none",
+          "Label": "Без тени"
+        },
+        {
+          "Value": "soft",
+          "Label": "Мягкая"
+        },
+        {
+          "Value": "hard",
+          "Label": "Жёсткая (пиксельная)"
+        },
+        {
+          "Value": "glow",
+          "Label": "Свечение"
+        },
+        {
+          "Value": "outline",
+          "Label": "Обводка"
+        }
+      ]
+    },
+    "TextShadowColor": {
+      "Type": "Color",
+      "Label": "Цвет тени текста",
+      "Value": "#000000"
+    },
+    "ShowTimestamps": {
+      "Type": "Toggle",
+      "Label": "Показывать время сообщения",
+      "Value": false
+    },
+    "Padding": {
+      "Type": "Slider",
+      "Label": "Отступ внутри сообщений (px)",
+      "Value": 12,
+      "Min": 0,
+      "Max": 24
+    },
+    "FontWeight": {
+      "Type": "Select",
+      "Label": "Насыщенность шрифта",
+      "Value": "normal",
+      "Enumerate": [
+        {
+          "Value": "normal",
+          "Label": "Обычный"
+        },
+        {
+          "Value": "bold",
+          "Label": "Жирный"
+        }
+      ]
+    },
+    "LetterSpacing": {
+      "Type": "Slider",
+      "Label": "Межбуквенный интервал (px)",
+      "Value": 0,
+      "Min": 0,
+      "Max": 6
+    },
+    "AnimationSpeed": {
+      "Type": "Slider",
+      "Label": "Длительность анимации (мс)",
+      "Value": 800,
+      "Min": 100,
+      "Max": 3000,
+      "Step": 50
+    },
+    "AvatarSize": {
+      "Type": "Slider",
+      "Label": "Размер аватара (%)",
+      "Value": 100,
+      "Min": 50,
+      "Max": 200
+    },
+    "AvatarShape": {
+      "Type": "Select",
+      "Label": "Форма аватара",
+      "Value": "round",
+      "Enumerate": [
+        {
+          "Value": "round",
+          "Label": "Круглая"
+        },
+        {
+          "Value": "rounded",
+          "Label": "Скруглённая"
+        },
+        {
+          "Value": "square",
+          "Label": "Квадратная"
+        }
+      ]
+    },
+    "MaxWidth": {
+      "Type": "Slider",
+      "Label": "Максимальная ширина сообщений (%)",
+      "Value": 100,
+      "Min": 40,
+      "Max": 100
+    },
     "ShowEffect": {
       "Type": "Select",
       "Label": "Эффект появления",

@@ -71,10 +71,10 @@ html, body {
 }
 
 .div_message {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 16px;
-  padding: 0.45em 0.9em;
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 16px);
+  padding: var(--pad, 12px);
   margin-top: 0.45em;
   margin-right: auto;
   margin-bottom: 0;
@@ -85,7 +85,8 @@ html, body {
   display: inline-table;
   word-break: break-word;
   background: linear-gradient(135deg, rgba(58, 12, 73, 0.55) 0%, rgba(10, 28, 63, 0.55) 100%);
-  border: 1px solid rgba(255, 113, 206, 0.35);
+  background-color: var(--bgc, transparent);
+  border: var(--borderw, 1px) solid rgba(255, 113, 206, 0.35);
   box-shadow: 0 0 calc(var(--glow) * 2px) rgba(255, 113, 206, 0.2),
     inset 0 0 calc(var(--glow) * 2px) rgba(1, 205, 205, 0.12);
 }
@@ -99,12 +100,12 @@ html, body {
 
 /* Аватар */
 .avatar img {
-  border-radius: 50%;
+  border-radius: var(--avradius, 50%);
   opacity: 0;
   transition: opacity 0.25s ease;
   aspect-ratio: 1;
   object-fit: cover;
-  border: 2px solid rgba(1, 205, 205, 0.6);
+  border: var(--borderw, 2px) solid rgba(1, 205, 205, 0.6);
   box-shadow: 0 0 calc(var(--glow) * 1.5px) rgba(255, 113, 206, 0.6);
 }
 
@@ -147,7 +148,7 @@ html, body {
 
 .text-message.highlighted {
   background: linear-gradient(90deg, rgba(255, 113, 206, 0.25), rgba(1, 205, 205, 0.25));
-  border: 1px solid rgba(255, 113, 206, 0.6);
+  border: 1px solid var(--accent-weak, rgba(255, 113, 206, 0.6));
   color: #FFF;
 }
 
@@ -187,4 +188,18 @@ html, body {
   font-style: italic;
   letter-spacing: 0.06em;
   text-shadow: 0 0 calc(var(--glow) * 1.2px) rgba(1, 205, 205, 0.8);
+}
+
+/* ==== Настройки v1.1: размер и форма аватаров, время сообщений ==== */
+.avatar img {
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+}
+
+.timestamp {
+  color: var(--accent, #FF71CE);
+  opacity: 0.7;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  flex: 0 0 auto;
 }

@@ -47,7 +47,7 @@ html, body {
 }
 
 .score-value {
-  color: #FFD700;
+  color: var(--accent, #FFD700);
 }
 
 /* Сообщения */
@@ -59,10 +59,10 @@ html, body {
 }
 
 .div_message {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 0;
-  padding: 0.55em 0.7em;
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 0px);
+  padding: var(--pad, 10px);
   margin-top: 0.5em;
   margin-right: auto;
   margin-bottom: 0;
@@ -72,8 +72,8 @@ html, body {
   box-sizing: border-box;
   display: inline-table;
   word-break: break-word;
-  background: rgba(8, 4, 24, 0.62);
-  border: 3px solid #FFFFFF;
+  background: var(--bg, rgba(8, 4, 24, 0.62));
+  border: var(--borderw, 3px) solid var(--border-color, #FFFFFF);
   box-shadow: 0 0 0 3px #000000, 6px 6px 0 3px rgba(0, 0, 0, 0.45);
 }
 
@@ -87,7 +87,7 @@ html, body {
 
 /* Аватар */
 .avatar img {
-  border-radius: 0;
+  border-radius: var(--avradius, 0%);
   border: 3px solid #FFD700;
   box-shadow: 0 0 0 2px #000;
   opacity: 0;
@@ -111,14 +111,6 @@ html, body {
 .username {
   display: inline-block;
   margin: 0 0.3em 0 0;
-  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
-    2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
-}
-
-.text-message,
-.text-message a {
-  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
-    2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
 
 .text-message.reply {
@@ -154,7 +146,7 @@ html, body {
 
 /* Курсор */
 .cursor {
-  color: #FFD700;
+  color: var(--accent, #FFD700);
   text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
   animation: cursor-blink 0.6s steps(1) infinite;
 }
@@ -190,7 +182,7 @@ html, body {
 .live_event {
   margin-top: 0.5em;
   padding: 0.4em 0.6em;
-  color: #7CFF4F;
+  color: var(--accent, #7CFF4F);
   text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
     2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
 }
@@ -198,4 +190,18 @@ html, body {
 .live_event::before {
   content: "! ";
   color: #FFD700;
+}
+
+/* ==== Настройки v1.1: размер и форма аватаров, время сообщений ==== */
+.avatar img {
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+}
+
+.timestamp {
+  color: var(--accent, #FFD700);
+  opacity: 0.7;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  flex: 0 0 auto;
 }

@@ -61,10 +61,10 @@ html, body {
 }
 
 .div_message {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 3px;
-  padding: 3px 8px;
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 3px);
+  padding: var(--pad, 8px);
   margin-top: 3px;
   margin-right: auto;
   margin-bottom: 0;
@@ -74,8 +74,8 @@ html, body {
   box-sizing: border-box;
   display: inline-table;
   word-break: break-word;
-  background: rgba(1, 10, 4, 0.55);
-  border: 1px solid rgba(0, 255, 65, 0.22);
+  background: var(--bg, rgba(1, 10, 4, 0.55));
+  border: var(--borderw, 1px) solid var(--accent-weak, rgba(0, 255, 65, 0.22));
   box-shadow: 0 0 12px rgba(0, 255, 65, 0.08);
 }
 
@@ -88,7 +88,7 @@ html, body {
 
 /* Аватар */
 .avatar img {
-  border-radius: 15%;
+  border-radius: var(--avradius, 15%);
   opacity: 0;
   transition: opacity 0.25s ease;
   aspect-ratio: 1;
@@ -130,7 +130,7 @@ html, body {
 
 .text-message.highlighted {
   background: rgba(0, 255, 65, 0.18);
-  border: 1px solid rgba(0, 255, 65, 0.5);
+  border: 1px solid var(--accent, rgba(0, 255, 65, 0.5));
   color: #DFFFDF;
 }
 
@@ -153,7 +153,7 @@ html, body {
 
 .cursor {
   width: 10px;
-  color: #00FF41;
+  color: var(--accent, #00FF41);
   text-shadow: 0 0 8px rgba(0, 255, 65, 0.9);
   animation: cursor-blink 0.6s ease-in-out infinite;
 }
@@ -182,6 +182,20 @@ html, body {
   color: #00FF41;
   font-weight: 700;
   background: rgba(1, 10, 4, 0.5);
-  border: 1px dashed rgba(0, 255, 65, 0.45);
+  border: 1px dashed var(--accent, rgba(0, 255, 65, 0.45));
   text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+}
+
+/* ==== Настройки v1.1: размер и форма аватаров, время сообщений ==== */
+.avatar img {
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+}
+
+.timestamp {
+  color: var(--accent, #00FF41);
+  opacity: 0.7;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  flex: 0 0 auto;
 }

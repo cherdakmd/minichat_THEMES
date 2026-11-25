@@ -32,10 +32,10 @@ html, body {
 
 /* Строка чата как в Minecraft */
 .div_message {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 0;
-  padding: 0.28em 0.6em;
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 0px);
+  padding: var(--pad, 7px);
   margin-top: 2px;
   margin-right: auto;
   margin-bottom: 0;
@@ -46,7 +46,7 @@ html, body {
   display: inline-table;
   word-break: break-word;
   background: var(--rowbg);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: var(--borderw, 1px) solid rgba(255, 255, 255, 0.06);
 }
 
 .div_message img {
@@ -58,7 +58,7 @@ html, body {
 
 /* Аватар */
 .avatar img {
-  border-radius: 0;
+  border-radius: var(--avradius, 0%);
   opacity: 0;
   transition: opacity 0.25s ease;
   aspect-ratio: 1;
@@ -95,7 +95,7 @@ html, body {
 }
 
 .text-message.reply {
-  color: #55FF55 !important;
+  color: var(--accent, #55FF55) !important;
 }
 
 .text-message.highlighted {
@@ -135,4 +135,18 @@ html, body {
   padding: 0.28em 0.6em;
   color: #FFFF55;
   background: var(--rowbg, rgba(0, 0, 0, 0.6));
+}
+
+/* ==== Настройки v1.1: размер и форма аватаров, время сообщений ==== */
+.avatar img {
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+}
+
+.timestamp {
+  color: var(--accent, #55FF55);
+  opacity: 0.7;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  flex: 0 0 auto;
 }

@@ -34,6 +34,7 @@
                             <span class="badges" v-if="ShowBadges && message.badges && message.badges.length">
                                 <img v-for="badge in message.badges" v-bind:key="badge" :src="badge.Image.Default" />
                             </span>
+                            <span class="timestamp" v-if="ShowTimestamps">{{ MessageTime(message) }}</span>
                             <span class="username" :style="UseColorUserName ? { color: message.Color == undefined ? ColorUserName : message.Color } : { color: ColorUserName }">{{ message.UserName }}:</span>
                             <span class="text-message" :style="{ color: Color }" :class="{ 'reply': message.Reply && !message.isDeleted, 'highlighted': message.Meta && message.Meta.Highlighted && !message.isDeleted, 'deleted': message.isDeleted }, 'no-image-in-message'">
                                 <typed-js :strings="[FormattedMessage(message)]" :speed="TypeSpeed">
