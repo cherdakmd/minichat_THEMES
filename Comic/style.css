@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+/* Точки-растры */
+.halftone {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(rgba(230, 57, 70, 0.14) 1.2px, transparent 1.2px),
+    radial-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+  background-size: 14px 14px, 22px 22px;
+  background-position: 0 0, 7px 7px;
+}
+
+.messages {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+}
+
+.display_message {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.55em;
+  position: relative;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+.display_message:nth-child(even) .bubble {
+  transform: rotate(0.35deg);
+}
+
+.display_message:nth-child(odd) .bubble {
+  transform: rotate(-0.3deg);
+}
+
+/* Пузырь комикса */
+.bubble {
+  display: inline-table;
+  max-width: 100%;
+  padding: 0.4em 0.8em;
+  border-radius: 16px;
+  border: var(--outline) solid #111;
+  background: var(--bubble);
+  color: #111;
+  position: relative;
+  word-wrap: break-word;
+  word-break: break-word;
+  box-shadow: 3px 3px 0 rgba(17, 17, 17, 0.28);
+}
+
+/* Хвостик пузыря */
+.bubble::after,
+.bubble::before {
+  content: "";
+  position: absolute;
+  left: 1.6em;
+  bottom: calc(-1 * var(--outline) * 2.2);
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.bubble::before {
+  border-width: calc(var(--outline) * 2.2 + 2px) calc(var(--outline) * 2.2 + 2px) 0 0;
+  border-color: #111 transparent transparent transparent;
+  left: calc(1.6em - 2px);
+}
+
+.bubble::after {
+  bottom: calc(-1 * var(--outline) * 2.2 + 1px);
+  border-width: calc(var(--outline) * 2.2) calc(var(--outline) * 2.2) 0 0;
+  border-color: var(--bubble) transparent transparent transparent;
+  left: calc(1.6em - 1px);
+}
+
+.bubble img {
+  height: 1em;
+  width: auto;
+  margin-bottom: -0.15em;
+  margin-right: 0.2em;
+}
+
+/* Аватар */
+.avatar img {
+  border-radius: 50%;
+  border: var(--outline) solid #111;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* Аватар отключен */
+.no-avatar {
+  display: none !important;
+}
+
+.emoticon {
+  height: 1.5em;
+  width: auto;
+  margin-bottom: -0.4em;
+}
+
+.username {
+  display: inline-block;
+  margin: 0 0.3em 0 0;
+  font-weight: 700;
+}
+
+.text-message,
+.text-message a {
+  color: #111;
+  font-weight: 700;
+}
+
+.text-message.reply {
+  color: #E63946 !important;
+}
+
+.text-message.highlighted {
+  background: #FFE84A;
+  box-shadow: 0 0 0 0.2em #FFE84A;
+  border-radius: 4px;
+}
+
+/* Изображения отключены */
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+/* Текст удаленного сообщения */
+.text-message.deleted {
+  color: #999 !important;
+  text-decoration: line-through wavy #E63946;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+  border-radius: 10px;
+  border: var(--outline) solid #111;
+}
+
+:root {
+  --font: 'Balsamiq Sans', 'Comic Sans MS', 'Segoe UI', cursive, sans-serif;
+  --font-weight: 700;
+  --bubble: #FFFFFF;
+  --outline: 2px;
+}
+
+/* События Live */
+.live_event {
+  display: inline-block;
+  margin-top: 0.5em;
+  padding: 0.25em 0.7em;
+  background: #FFE84A;
+  border: var(--outline, 2px) solid #111;
+  border-radius: 12px;
+  color: #111;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 rgba(17, 17, 17, 0.28);
+}

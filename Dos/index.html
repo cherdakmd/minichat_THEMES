@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>StreaMix Chat</title>
+        <link href="../../Additions/animate.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../../Additions/base-style.css">
+        <link href="style.css" rel="stylesheet" type="text/css">
+		<link href="vue-typed-js.css" rel="stylesheet" type="text/css"/>
+		<script src="../../Additions/vue.global.js"></script>
+		<script src="../../Additions/widget.js"></script>
+		<script src="typed.umd.js"></script>
+		<script src="components.js"></script>
+		<script src="template.js"></script>
+    </head>
+
+    <body>		
+        <div class="widget" id="widget">
+			<div class="font-effect-outline">
+            <div class="messages" :style="{ fontSize: TextSize / 16 + 'em' }">
+				<transition-group :enter-active-class="'animate__animated animate__' + ShowEffect" :leave-active-class="'animate__animated animate__' + HideEffect">
+					<div v-for="message in Messages" v-bind:key="message.GUID">
+
+						<div class="display_message" :id="message.GUID" :key="message.GUID" v-if="message.type == undefined">
+							<div class="div_message">
+								<span v-if="ShowServiceIcons" class="service-icon"><img :src="'../../Images/' + message.Service + '.png'"/></span>
+								<span class="avatar" :class="{ 'no-avatar': NoAvatar(message) }">
+									<img :src="message.Avatar.Default" loading="lazy" onerror='this.style.display="none"' onload="this.style.opacity=1" />
+								  </span>
+								<span class="badges" v-if="message.badges | ShowBadges">
+									<img v-for="badge in message.badges" :src="badge.Image.Default" />
+								</span>
+								<span class="username" :style="UseColorUserName ? { color: message.Color == undefined ? ColorUserName : message.Color} : {color: ColorUserName}">{{ message.UserName }}:</span>
+								<span class="text-message" :style="{ color: Color }" :class="{ 'reply': message.Reply && !message.isDeleted, 'highlighted': message.Meta.Highlighted && !message.isDeleted, 'deleted': message.isDeleted }, 'no-image-in-message'">
+									<typed-js :strings="[FormattedMessage(message)]" :speed="TypeSpeed">
+										<span class="typing"></span>
+									</typed-js>
+								</span>
+								<span class="cursor" v-if="DisplayConsoleCursor">◼</span> <!-- ◼ ￨ -->
+							</div>
+						</div>
+					</div>
+				</transition-group>
+            </div>
+			</div>
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.messages {
+  position: relative;
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+  letter-spacing: 0.02em;
+}
+
+/* Строка чата как в Minecraft */
+.div_message {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  padding: 0.28em 0.6em;
+  margin-top: 2px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  position: relative;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-table;
+  word-break: break-word;
+  background: var(--rowbg);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.div_message img {
+  height: 1em;
+  width: auto;
+  margin-bottom: -0.15em;
+  margin-right: 0.2em;
+}
+
+/* Аватар */
+.avatar img {
+  border-radius: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+  image-rendering: pixelated;
+  outline: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+/* Аватар отключен */
+.no-avatar {
+  display: none !important;
+}
+
+.emoticon {
+  height: 1.5em;
+  width: auto;
+  margin-bottom: -0.4em;
+  image-rendering: pixelated;
+}
+
+.service-icon img,
+.badges img {
+  image-rendering: pixelated;
+}
+
+.username {
+  display: inline-block;
+  margin: 0 0.3em 0 0;
+}
+
+.text-message,
+.text-message a {
+  color: rgba(255, 255, 255, 1);
+}
+
+.text-message.reply {
+  color: #55FF55 !important;
+}
+
+.text-message.highlighted {
+  background: rgba(255, 255, 0, 0.22);
+  outline: 1px solid rgba(255, 255, 0, 0.35);
+  color: #FFFFCC;
+}
+
+/* Изображения отключены */
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+/* Текст удаленного сообщения */
+.text-message.deleted {
+  color: #AAAAAA !important;
+  font-style: italic;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+  image-rendering: pixelated;
+  outline: 2px solid rgba(0, 0, 0, 0.6);
+}
+
+:root {
+  --font: 'Monocraft', 'Minecraft', 'Pixelify Sans', monospace;
+  --font-weight: 400;
+  --rowbg: rgba(0, 0, 0, 0.6);
+}
+
+/* События Live */
+.live_event {
+  margin-top: 2px;
+  padding: 0.28em 0.6em;
+  color: #FFFF55;
+  background: var(--rowbg, rgba(0, 0, 0, 0.6));
+}

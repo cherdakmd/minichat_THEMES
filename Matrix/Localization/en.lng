@@ -1,0 +1,398 @@
+{
+  "Language": {
+    "Code": "en"
+  },
+  "Name": "Matrix",
+  "Properties": {
+    "HideMessages": "Hide messages after (seconds)",
+    "MaxMessages": "Maximum Messages",
+    "DeleteMessageText": {
+      "Label": "The text of a deleted message",
+      "Value": "[Message deleted]"
+    },
+    "TypeSpeed": "Typing speed",
+    "ShowEffect": {
+      "Label": "Show Effect",
+      "Enumerate": [
+        {
+          "Value": "null",
+          "Label": "Без анимации"
+        },
+        {
+          "Value": "bounce",
+          "Label": "Bounce"
+        },
+        {
+          "Value": "flash",
+          "Label": "Flash"
+        },
+        {
+          "Value": "pulse",
+          "Label": "Pulse"
+        },
+        {
+          "Value": "rubberBand",
+          "Label": "Rubber Band"
+        },
+        {
+          "Value": "shakeX",
+          "Label": "Shake X"
+        },
+        {
+          "Value": "shakeY",
+          "Label": "Shake Y"
+        },
+        {
+          "Value": "headShake",
+          "Label": "Head Shake"
+        },
+        {
+          "Value": "swing",
+          "Label": "Swing"
+        },
+        {
+          "Value": "tada",
+          "Label": "Tada"
+        },
+        {
+          "Value": "wobble",
+          "Label": "Wobble"
+        },
+        {
+          "Value": "jello",
+          "Label": "Jello"
+        },
+        {
+          "Value": "heartBeat",
+          "Label": "Heart Beat"
+        },
+        {
+          "Value": "backInDown",
+          "Label": "Back In Up"
+        },
+        {
+          "Value": "backInLeft",
+          "Label": "Back In Left"
+        },
+        {
+          "Value": "backInRight",
+          "Label": "Back In Right"
+        },
+        {
+          "Value": "backInUp",
+          "Label": "Back In Up"
+        },
+        {
+          "Value": "bounceIn",
+          "Label": "Bounce In"
+        },
+        {
+          "Value": "bounceInDown",
+          "Label": "Bounce In Down"
+        },
+        {
+          "Value": "bounceInLeft",
+          "Label": "Bounce In Left"
+        },
+        {
+          "Value": "bounceInRight",
+          "Label": "Bounce In Right"
+        },
+        {
+          "Value": "bounceInUp",
+          "Label": "Bounce In Up"
+        },
+        {
+          "Value": "fadeIn",
+          "Label": "Fade In"
+        },
+        {
+          "Value": "fadeInDown",
+          "Label": "Fade In Down"
+        },
+        {
+          "Value": "fadeInDownBig",
+          "Label": "Fade In Down Big"
+        },
+        {
+          "Value": "fadeInLeft",
+          "Label": "Fade In Left"
+        },
+        {
+          "Value": "fadeInLeftBig",
+          "Label": "Fade In Left Big"
+        },
+        {
+          "Value": "fadeInRight",
+          "Label": "Fade In Right"
+        },
+        {
+          "Value": "fadeInRightBig",
+          "Label": "Fade In Right Big"
+        },
+        {
+          "Value": "fadeInUp",
+          "Label": "Fade In Up"
+        },
+        {
+          "Value": "fadeInUpBig",
+          "Label": "Fade In Up Big"
+        },
+        {
+          "Value": "flip",
+          "Label": "Flip"
+        },
+        {
+          "Value": "flipInX",
+          "Label": "Flip In X"
+        },
+        {
+          "Value": "flipInY",
+          "Label": "FlipInY"
+        },
+        {
+          "Value": "lightSpeedInRight",
+          "Label": "Light Speed In Right"
+        },
+        {
+          "Value": "lightSpeedInLeft",
+          "Label": "Light Speed In Left"
+        },
+        {
+          "Value": "rotateIn",
+          "Label": "Rotate In"
+        },
+        {
+          "Value": "rotateInDownLeft",
+          "Label": "Rotate In Down Left"
+        },
+        {
+          "Value": "rotateInDownRight",
+          "Label": "Rotate In Down Right"
+        },
+        {
+          "Value": "rotateInUpLeft",
+          "Label": "Rotate In Up Left"
+        },
+        {
+          "Value": "rotateInUpRight",
+          "Label": "Rotate In Up Right"
+        },
+        {
+          "Value": "jackInTheBox",
+          "Label": "Jack In The Box"
+        },
+        {
+          "Value": "rollIn",
+          "Label": "Roll In"
+        },
+        {
+          "Value": "zoomIn",
+          "Label": "Zoom In"
+        },
+        {
+          "Value": "zoomInDown",
+          "Label": "Zoom In Down"
+        },
+        {
+          "Value": "zoomInLeft",
+          "Label": "Zoom In Left"
+        },
+        {
+          "Value": "zoomInRight",
+          "Label": "Zoom In Right"
+        },
+        {
+          "Value": "zoomInUp",
+          "Label": "Zoom In Up"
+        },
+        {
+          "Value": "slideInDown",
+          "Label": "Slide In Down"
+        },
+        {
+          "Value": "slideInLeft",
+          "Label": "Slide In Left"
+        },
+        {
+          "Value": "slideInRight",
+          "Label": "Slide In Right"
+        },
+        {
+          "Value": "slideInUp",
+          "Label": "Slide In Up"
+        }
+      ]
+    },
+    "HideEffect": {
+      "Label": "Hide Effect",
+      "Enumerate": [
+        {
+          "Value": "backOutDown",
+          "Label": "Back Out Down"
+        },
+        {
+          "Value": "backOutLeft",
+          "Label": "Back Out Left"
+        },
+        {
+          "Value": "backOutRight",
+          "Label": "Back Out Right"
+        },
+        {
+          "Value": "backOutUp",
+          "Label": "Back Out Up"
+        },
+        {
+          "Value": "bounceOut",
+          "Label": "Bounce Out"
+        },
+        {
+          "Value": "bounceOutDown",
+          "Label": "Bounce Out Down"
+        },
+        {
+          "Value": "bounceOutLeft",
+          "Label": "Bounce Out Left"
+        },
+        {
+          "Value": "bounceOutRight",
+          "Label": "Bounce Out Right"
+        },
+        {
+          "Value": "bounceOutUp",
+          "Label": "Bounce Out Up"
+        },
+        {
+          "Value": "fadeOut",
+          "Label": "Fade Out"
+        },
+        {
+          "Value": "fadeOutDown",
+          "Label": "Fade Out Down"
+        },
+        {
+          "Value": "fadeOutDownBig",
+          "Label": "Fade Out Down Big"
+        },
+        {
+          "Value": "fadeOutLeft",
+          "Label": "Fade Out Left"
+        },
+        {
+          "Value": "fadeOutLeftBig",
+          "Label": "Fade Out Left Big"
+        },
+        {
+          "Value": "fadeOutRight",
+          "Label": "Fade Out Right"
+        },
+        {
+          "Value": "fadeOutRightBig",
+          "Label": "Fade Out Right Big"
+        },
+        {
+          "Value": "fadeOutUp",
+          "Label": "Fade Out Up"
+        },
+        {
+          "Value": "fadeOutUpBig",
+          "Label": "Fade Out Up Big"
+        },
+        {
+          "Value": "flipOutX",
+          "Label": "Flip Out X"
+        },
+        {
+          "Value": "flipOutY",
+          "Label": "Flip Out Y"
+        },
+        {
+          "Value": "lightSpeedOutRight",
+          "Label": "Light Speed Out Right"
+        },
+        {
+          "Value": "lightSpeedOutLeft",
+          "Label": "Light Speed Out Left"
+        },
+        {
+          "Value": "rotateOut",
+          "Label": "Rotate Out"
+        },
+        {
+          "Value": "rotateOutDownLeft",
+          "Label": "Rotate Out Down Left"
+        },
+        {
+          "Value": "rotateOutDownRight",
+          "Label": "Rotate Out Down Right"
+        },
+        {
+          "Value": "rotateOutUpLeft",
+          "Label": "Rotate Out Up Left"
+        },
+        {
+          "Value": "rotateOutUpRight",
+          "Label": "Rotate Out Up Right"
+        },
+        {
+          "Value": "hinge",
+          "Label": "Hinge"
+        },
+        {
+          "Value": "rollOut",
+          "Label": "Roll Out"
+        },
+        {
+          "Value": "zoomOut",
+          "Label": "Zoom Out"
+        },
+        {
+          "Value": "zoomOutDown",
+          "Label": "Zoom Out Down"
+        },
+        {
+          "Value": "zoomOutLeft",
+          "Label": "Zoom Out Left"
+        },
+        {
+          "Value": "zoomOutRight",
+          "Label": "Zoom Out Right"
+        },
+        {
+          "Value": "zoomOutUp",
+          "Label": "Zoom Out Up"
+        },
+        {
+          "Value": "slideOutDown",
+          "Label": "Slide Out Down"
+        },
+        {
+          "Value": "slideOutLeft",
+          "Label": "Slide Out Left"
+        },
+        {
+          "Value": "slideOutRight",
+          "Label": "Slide Out Right"
+        },
+        {
+          "Value": "slideOutUp",
+          "Label": "Slide Out Up"
+        }
+      ]
+    },
+    "Color": "Цвет текста",
+    "ColorUserName": "Цвет имени",
+    "EnableRain": "Matrix-style digital rain background",
+    "RainSpeed": "Rain speed",
+    "Glow": "Glow intensity",
+    "TextSize": "Размер текста",
+    "Font": "Шрифт",
+    "ShowServiceIcons": "Показывать иконки сервисов",
+    "ShowAvatars": "Показывать аватары",
+    "ShowBadges": "Показывать значки",
+    "UseColorUserName": "Использовать оригинальный цвет имени",
+    "DisplayConsoleCursor": "Display console cursor",
+    "ShowLive": "Показывать \"Live\" события"
+  }
+}
