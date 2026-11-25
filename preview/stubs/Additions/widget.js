@@ -98,6 +98,14 @@
 	window.GetAction = GetAction;
 
 	/* ---------- Управление из галереи (postMessage) ---------- */
+	function applyValue(key, value) {
+		var t = R();
+		if (t.$data && !(key in t.$data))
+			t.$data[key] = value;
+		else
+			t[key] = value;
+	}
+
 	window.addEventListener('message', function (e) {
 		var d = e.data || {};
 		switch (d.cmd) {
@@ -105,6 +113,20 @@
 			case 'rate': Demo.rate = Number(d.value) || 1; break;
 			case 'clear': R().Messages.splice(0); break;
 			case 'trigger': Demo.trigger(d.kind); break;
+			case 'set': applyValue(d.key, d.value); break;
+			case 'applyMany':
+				var values = d.values || {};
+				Object.keys(values).forEach(function (k) { applyValue(k, values[k]); });
+				break;
+			case 'sound':
+				// тест звука из галереи: играем независимо от EnableSound
+				if (typeof ThemeFX !== 'undefined' && ThemeFX.playSound) {
+					var prev = R().EnableSound;
+					R().EnableSound = true;
+					ThemeFX.playSound('donation');
+					setTimeout(function () { R().EnableSound = prev; }, 1500);
+				}
+				break;
 		}
 	});
 
