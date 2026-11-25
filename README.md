@@ -1,83 +1,102 @@
-# minichat_THEMES
+<div align="center">
 
-Коллекция тем-оверлеев для программы **Minichat**.
+<img src="docs/cover.svg" alt="Minichat THEMES" width="100%">
 
-Каждая папка в корне репозитория — отдельная тема. Скопируйте папку темы в
-каталог `Themes` программы Minichat — и тема появится в списке.
+**Темы-оверлеи для чата программы [Minichat](https://minichat.pro)** — от терминала «Матрицы» до вейпорвейва.
 
-## Темы
+*Каждая тема — самодостаточная папка: скопировал в `Themes` → включил в OBS → стримишь.*
 
-| Тема | Папка | Стиль |
-|---|---|---|
-| Матрица | `Matrix/` | Зелёный терминал, эффект печатной машинки, фон «цифровой дождь» |
-| Аркада | `Arcade/` | Пиксельная игра 80-х: Press Start 2P, score-бар, INSERT COIN |
-| Windows 95 | `Windows95/` | Ретро-окно с заголовком и часами в трее |
-| Неон | `Neon/` | Карточки «стекло/неоновая рамка», градиентные имена, свечение |
-| Вейпорвейв | `Vaporwave/` | Неоновая сетка, солнце, розово-циановые градиенты |
-| Комикс | `Comic/` | Речевые пузыри с обводкой, точки-растр |
-| Minecraft | `Minecraft/` | Строки чата как в игре, пиксельная тень текста |
-| DOS | `Dos/` | Оригинальная тема (эталон формата) |
+![темы](https://img.shields.io/badge/темы-8-4F8CFF?style=for-the-badge)
+![превью](https://img.shields.io/badge/превью-в_браузере-B967FF?style=for-the-badge)
+![кириллица](https://img.shields.io/badge/кириллица-да-43AA8B?style=for-the-badge)
+![лицензия](https://img.shields.io/badge/лицензия-MIT-F5A623?style=for-the-badge)
 
-## Структура темы
+</div>
+
+---
+
+## 🎨 Темы
+
+| | Тема | Вайб | Фишки |
+|---|---|---|---|
+| <img src="Matrix/icon.svg" width="56"> | **Матрица** | зелёный терминал | эффект печатной машинки (typed.js), анимированный «цифровой дождь» на фоне, свечение текста, курсор консоли |
+| <img src="Arcade/icon.svg" width="56"> | **Аркада** | игровой автомат 80-х | шрифт Press Start 2P, score-бар «1UP / HI-SCORE», мигающий `INSERT COIN`, жёсткие пиксельные рамки |
+| <img src="Windows95/icon.svg" width="56"> | **Windows 95** | ретро-ПК | настоящее окно с бевелями, настраиваемый заголовок, часы в трее, мгновенные эффекты |
+| <img src="Neon/icon.svg" width="56"> | **Неон** | ночной город | карточки на выбор: *стекло / неоновая рамка / минимализм*, градиентные имена, ползунок свечения |
+| <img src="Vaporwave/icon.svg" width="56"> | **Вейпорвейв** | ƒａｅｓｔｈｅｔｉｃｓ | перспективная неоновая сетка, ретро-солнце, розово-циановые градиенты |
+| <img src="Comic/icon.svg" width="56"> | **Комикс** | POW! | речевые пузыри с хвостиком, настраиваемые цвет и толщина обводки, точки-растр, волнистое зачёркивание |
+| <img src="Minecraft/icon.svg" width="56"> | **Minecraft** | ванильный чат | шрифт Monocraft с кириллицей, полупрозрачные строки, пиксельная тень текста |
+| <img src="Dos/icon.svg" width="56"> | **DOS** | классика | оригинальная тема — эталон формата (FixedSys Excelsior, typed.js) |
+
+> У каждой темы свои настройки прямо в Minichat: эффекты появления/исчезновения, лимит и время жизни сообщений, цвета, шрифт, аватары, значки и прочее — всё на русском.
+
+## 🚀 Установка
+
+1. Скачай папку с темой (например `Neon/`).
+2. Скопируй её в каталог **`Themes`** программы Minichat.
+3. Перезапусти Minichat → выбери тему в настройках оверлея → добавь Browser Source в OBS/Streamlabs.
+
+Никаких зависимостей ставить не нужно: шрифты и всё остальное лежат внутри темы.
+
+## 🖥 Живое превью
+
+В репозитории есть страница-галерея с имитацией чата — демо-лента, донаты,
+Live-события, пауза/скорость и смена фона (тёмный / «игра» / прозрачность) для проверки читаемости:
+
+```bash
+git clone https://github.com/cherdakmd/minichat_THEMES.git
+cd minichat_THEMES
+python3 preview/serve.py
+# → http://localhost:8123/preview/index.html
+```
+
+> `preview/stubs/` — это заглушки **только для превью** (имитация сообщений чата).
+> В самом Minichat используются его собственные `Additions/*` — копировать заглушки никуда не нужно.
+
+## 🧩 Формат темы
+
+Хочешь сделать свою тему? Структура простая:
 
 ```
 ИмяТемы/
-├── manifest.json        # название, иконка и свойства (настройки в UI Minichat)
-├── Localization/
-│   └── en.lng           # английские подписи свойств
+├── manifest.json        # название, иконка, свойства (настройки в UI Minichat)
+├── Localization/en.lng  # английские подписи настроек
 ├── index.html           # Vue 3 шаблон оверлея
-├── style.css            # стили темы
+├── style.css            # стили
 ├── icon.svg             # иконка в списке тем
-├── template.js          # логика темы (вычисляемые поля, эффекты)
-└── fonts/               # шрифты + fonts.css (@font-face)
+├── template.js          # логика темы (mixin: computed, эффекты)
+└── fonts/               # шрифты + fonts.css
 ```
 
-Для тем с эффектом набора текста (Matrix, Arcade) дополнительно копируются
-`typed.umd.js`, `components.js` и `vue-typed-js.css` из темы Dos.
+Полная документация — **[docs/THEME_FORMAT.md](docs/THEME_FORMAT.md)**:
+контракт `widget.js`, все типы свойств манифеста, локализация, подключение шрифтов и чек-лист новой темы.
 
-### manifest.json
+## ✍️ Шрифты (все свободные)
 
-`Language.Culture` — язык подписей по умолчанию (`ru-RU`). Типы свойств:
-`Slider`, `Text`, `Toggle`, `Color`, `Font`, `Select` (с списком `Enumerate`).
-Значения свойств Minichat подставляет в шаблон как переменные
-(`TextSize`, `Color`, `ShowAvatars`, ... — см. любую тему).
+| Шрифт | Тема | Лицензия |
+|---|---|---|
+| FixedSys Excelsior (FSEX300) | DOS, Матрица | свободный шрифт |
+| Press Start 2P | Аркада | SIL OFL (@fontsource) |
+| W95FA + Pixelify Sans | Windows 95 | SIL OFL |
+| Russo One | Неон | SIL OFL (@fontsource) |
+| Audiowide + Play | Вейпорвейв | SIL OFL (@fontsource) |
+| Balsamiq Sans | Комикс | SIL OFL (@fontsource) |
+| Monocraft | Minecraft | SIL OFL ([Monocraft](https://github.com/IdreesInc/Monocraft)) |
 
-Общие свойства: скрытие сообщений по таймеру, лимит сообщений, текст
-удалённых сообщений, эффекты появления/исчезновения (animate.css), размер
-текста, шрифт, цвета, аватары, значки, иконки сервисов, Live-события.
+Шрифты подключены через `@font-face` c `unicode-range` — кириллица поддерживается
+(кроме W95FA: для неё латиница — W95FA, кириллица — Pixelify Sans).
 
-### Контракт шаблона
+## 🤝 Контрибуция
 
-Тема использует глобальные переменные, которые предоставляет Minichat:
-`Messages` (массив сообщений: `GUID`, `Service`, `Avatar.Default`,
-`badges`, `UserName`, `Color`, `Reply`, `Meta.Highlighted`, `isDeleted`,
-текст), методы `NoAvatar()` и `FormattedMessage()`, плюс значения свойств
-из `manifest.json`. Собственные вычисляемые поля темы добавляются через
-`app.mixin({ ... })` в `template.js`.
+Нашёл баг или хочешь добавить тему — заводи issue или PR.
+Перед PR проверь тему локально (`python3 preview/serve.py`) и сохрани структуру манифеста — см. [docs/THEME_FORMAT.md](docs/THEME_FORMAT.md).
 
-## Превью в браузере
+---
 
-Репозиторий содержит страницу-галерею с имитацией чата (демо-лента
-сообщений, донаты, Live-события, кнопки паузы/скорости, смена фона для
-проверки читаемости):
+<div align="center">
 
-```bash
-python3 preview/serve.py        # http://localhost:8123/preview/index.html
-```
+**MIT** © cherdakmd · сделано с ☕ и 💜
 
-`preview/stubs/` — заглушки `Additions/widget.js` (имитация сообщений),
-`animate.css`, `vue.global.js` и иконки сервисов. Они нужны **только для
-превью**: в самом Minichat используются одноимённые файлы программы,
-копировать `preview/stubs` в Minichat не нужно.
+↑ звезда репозиторию, если темы пригодились
 
-## Шрифты (лицензии)
-
-Все шрифты распространяются свободно:
-
-- **FSEX300** (FixedSys Excelsior, тема DOS и Matrix) — свободный шрифт из комплекта Dos;
-- **Press Start 2P**, **Play**, **Russo One**, **Balsamiq Sans**, **Pixelify Sans**, **Audiowide** — [SIL OFL](https://fonts.google.com) (пакеты @fontsource);
-- **W95FA** — SIL OFL (FontsArena, recreate шрифта Windows 95);
-- **Monocraft** — SIL OFL ([github.com/IdreesInc/Monocraft](https://github.com/IdreesInc/Monocraft)).
-
-Шрифты подключены с `unicode-range`, кириллица поддерживается
-(W95FA — латиница, для кириллицы подставляется Pixelify Sans / системный шрифт).
+</div>
