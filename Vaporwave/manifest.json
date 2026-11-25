@@ -622,6 +622,29 @@
       "Min": 0,
       "Max": 100
     },
+    "SoundScheme": {
+      "Type": "Select",
+      "Label": "Звуковая схема",
+      "Value": "classic",
+      "Enumerate": [
+        {
+          "Value": "classic",
+          "Label": "Классика"
+        },
+        {
+          "Value": "retro",
+          "Label": "Ретро (8-bit)"
+        },
+        {
+          "Value": "bubble",
+          "Label": "Пузырьки"
+        },
+        {
+          "Value": "crystal",
+          "Label": "Кристалл"
+        }
+      ]
+    },
     "AutoNameColor": {
       "Type": "Toggle",
       "Label": "Автоцвет ника (по имени)",

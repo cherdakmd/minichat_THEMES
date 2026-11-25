@@ -8,7 +8,7 @@
 
 **[🇬🇧 English](README.en.md)** · 🇷🇺 Русский
 
-![темы](https://img.shields.io/badge/темы-12-4F8CFF?style=for-the-badge)
+![темы](https://img.shields.io/badge/темы-14-4F8CFF?style=for-the-badge)
 ![эффекты](https://img.shields.io/badge/эффекты-ThemeFX-B967FF?style=for-the-badge)
 ![превью](https://img.shields.io/badge/превью-в_браузере-00C2CC?style=for-the-badge)
 ![кириллица](https://img.shields.io/badge/кириллица-да-43AA8B?style=for-the-badge)
@@ -34,6 +34,8 @@
 | <img src="SplitFlap/icon.svg" width="56"> | **Split-flap** | табло аэропорта | механическое перелистывание «лепестков» (flipInX), заголовок табло, перегородки плиток |
 | <img src="Space/icon.svg" width="56"> | **Космос** | миссия NASA | параллакс-звёзды и метеоры (canvas), туманность, HUD-рамка с миссионным таймером «T+» |
 | <img src="Cyberpunk/icon.svg" width="56"> | **Cyberpunk** | Найт-Сити | глитч-заголовок с RGB-разъездом, срезанные углы карточек, сканлайн-полоса, наклон строк |
+| <img src="Halloween/icon.svg" width="56"> | **Хэллоуин** | 🎃 тыквенный стрим | летучие мыши на фоне (canvas), мистический туман, шрифт Neucha, тыквенные Live-события |
+| <img src="NewYear/icon.svg" width="56"> | **Новый год** | 🎄 праздничный | гирлянда с мерцанием, снег по умолчанию, фейерверки на canvas, заголовок «С Новым годом!», шрифт Yeseva One |
 | <img src="Dos/icon.svg" width="56"> | **DOS** | классика | оригинальная тема — эталон формата (FixedSys Excelsior, typed.js) |
 
 > У каждой темы **30+ настроек** прямо в Minichat: скругление краёв, тень текста
@@ -50,6 +52,8 @@
 - 🔊 **Звук** — донаты и события озвучиваются WebAudio-синтезом (без аудиофайлов; в OBS browser source работает, в настройках темы включается тумблером)
 - 🌈 **Автоцвет ника** — детерминированный цвет по хешу имени (как в Twitch)
 - ❄️ **Снегопад** — canvas-фон в любой теме
+- 🦇 **Летучие мыши** и 🎆 **фейерверки** — сезонные canvas-эффекты
+- 🎵 **4 звуковые схемы** — Классика, Ретро (8-bit), Пузырьки, Кристалл (настраиваются в каждой теме)
 - Плюс фирменные: звёзды и метеоры в Космосе, помехи в CRT, глитч-заголовок в Cyberpunk
 
 ## ⬇️ Скачать
@@ -117,6 +121,8 @@ python3 preview/serve.py
 | Russo One | Неон | SIL OFL (@fontsource) |
 | Audiowide + Play | Вейпорвейв | SIL OFL (@fontsource) |
 | Balsamiq Sans | Комикс | SIL OFL (@fontsource) |
+| Neucha | Хэллоуин | SIL OFL (@fontsource) |
+| Yeseva One + Play | Новый год | SIL OFL (@fontsource) |
 | Monocraft | Minecraft | SIL OFL ([Monocraft](https://github.com/IdreesInc/Monocraft)) |
 
 Шрифты подключены через `@font-face` c `unicode-range` — кириллица поддерживается

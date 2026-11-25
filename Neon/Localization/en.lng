@@ -478,6 +478,27 @@
     "ShowConfetti": "Confetti on donations",
     "EnableSound": "Sound on donations and events",
     "SoundVolume": "Sound volume",
+    "SoundScheme": {
+      "Label": "Sound scheme",
+      "Enumerate": [
+        {
+          "Value": "classic",
+          "Label": "Classic"
+        },
+        {
+          "Value": "retro",
+          "Label": "Retro (8-bit)"
+        },
+        {
+          "Value": "bubble",
+          "Label": "Bubbles"
+        },
+        {
+          "Value": "crystal",
+          "Label": "Crystal"
+        }
+      ]
+    },
     "AutoNameColor": "Auto name color (name hash)",
     "EnableSnow": "Snowfall background",
     "SnowAmount": "Snow density"
