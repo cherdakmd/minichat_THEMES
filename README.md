@@ -30,9 +30,15 @@
 
 > У каждой темы свои настройки прямо в Minichat: эффекты появления/исчезновения, лимит и время жизни сообщений, цвета, шрифт, аватары, значки и прочее — всё на русском.
 
+## ⬇️ Скачать
+
+Готовые ZIP-архивы — на странице [**Releases**](https://github.com/cherdakmd/minichat_THEMES/releases/latest):
+скачай отдельную тему (например `Minichat-Theme-Neon.zip`) или общий архив со всеми темами
+(`Minichat-THEMES-all.zip`).
+
 ## 🚀 Установка
 
-1. Скачай папку с темой (например `Neon/`).
+1. Скачай тему из [Releases](https://github.com/cherdakmd/minichat_THEMES/releases/latest) или забери папку прямо из репозитория.
 2. Скопируй её в каталог **`Themes`** программы Minichat.
 3. Перезапусти Minichat → выбери тему в настройках оверлея → добавь Browser Source в OBS/Streamlabs.
 
