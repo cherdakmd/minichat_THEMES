@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Редакторы
+.idea/
+.vscode/
+*.swp
+
+# Временные архивы (`.txt`-переименования и т.п.)
+*.rar.txt
+*.zip.txt

@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.messages {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+}
+
+/* ---------- Гирлянда ---------- */
+.garland {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  z-index: 3;
+  pointer-events: none;
+  background: repeating-linear-gradient(90deg,
+    #FF5252 0 14px, #FFD34D 14px 28px,
+    #69F0AE 28px 42px, #4FC3F7 42px 56px, #FF5252 56px 70px);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.45), 0 1px 0 rgba(0, 0, 0, 0.5);
+  animation: garland-blink 1.4s ease-in-out infinite;
+}
+
+@keyframes garland-blink {
+  0%, 100% { filter: brightness(1.25) saturate(1.15); }
+  50%      { filter: brightness(0.7) saturate(0.9); }
+}
+
+/* ---------- Праздничный заголовок ---------- */
+.fest-header {
+  position: relative;
+  z-index: 1;
+  margin: 10px 4px 8px;
+  width: fit-content;
+  max-width: 100%;
+  color: var(--accent, #FFD34D);
+  font-family: 'Yeseva One', serif;
+  font-size: 0.95em;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 14px rgba(255, 211, 77, 0.55), 0 2px 0 rgba(0, 0, 0, 0.45);
+  animation: fest-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes fest-glow {
+  from { text-shadow: 0 0 10px rgba(255, 211, 77, 0.4), 0 2px 0 rgba(0, 0, 0, 0.45); }
+  to   { text-shadow: 0 0 22px rgba(255, 211, 77, 0.75), 0 2px 0 rgba(0, 0, 0, 0.45); }
+}
+
+.div_message {
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 12px);
+  padding: var(--pad, 11px);
+  margin-top: 4px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  position: relative;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-table;
+  word-break: break-word;
+  background: var(--bg, rgba(14, 24, 48, 0.58));
+  border: var(--borderw, 1px) solid var(--accent-weak, rgba(255, 211, 77, 0.38));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.div_message img {
+  height: 1em;
+  width: auto;
+  margin-bottom: -0.15em;
+  margin-right: 0.2em;
+}
+
+.avatar img {
+  border-radius: var(--avradius, 50%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+  border: 2px solid rgba(255, 211, 77, 0.45);
+}
+
+.no-avatar {
+  display: none !important;
+}
+
+.emoticon {
+  height: 1.5em;
+  width: auto;
+  margin-bottom: -0.4em;
+}
+
+.username {
+  display: inline-block;
+  margin: 0 0.3em 0 0;
+}
+
+.timestamp {
+  color: var(--accent, #FFD34D);
+  opacity: 0.8;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+}
+
+.text-message,
+.text-message a {
+  color: rgba(255, 255, 255, 1);
+}
+
+.text-message.reply {
+  color: #69F0AE !important;
+}
+
+.text-message.highlighted {
+  background: rgba(255, 211, 77, 0.12);
+  border: 1px solid var(--accent, #FFD34D);
+  color: #FFF6D8;
+}
+
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+.text-message.deleted {
+  color: rgba(170, 190, 220, 0.45) !important;
+  text-decoration: line-through;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+  border-radius: var(--radius, 12px);
+  border: 1px solid var(--accent-weak, rgba(255, 211, 77, 0.4));
+}
+
+/* События Live: под ёлкой */
+.live_event {
+  margin-top: 4px;
+  padding: var(--pad, 11px);
+  color: #A7FFC4;
+  font-weight: 700;
+  background: var(--bg, rgba(14, 24, 48, 0.58));
+  border: 1px dashed var(--accent-weak, rgba(255, 211, 77, 0.5));
+  border-radius: var(--radius, 12px);
+}
+
+.live_event::before {
+  content: "🎄 ";
+}
+
+:root {
+  --font: 'Play', 'Yeseva One', Arial, sans-serif;
+  --font-weight: 400;
+}

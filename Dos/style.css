@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+@font-face {
+  font-family: 'FSEX300';
+  src: url(FSEX300.ttf) format('truetype');
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.div_message {
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 6px);
+  padding: var(--pad, 3px);
+  margin-top: 2px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  position: relative;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-table;
+
+  word-break: break-word;
+}
+
+.div_message img {
+  height: 1em;
+  width: auto;
+  margin-bottom: -0.15em;
+  margin-right: 0.2em;
+}
+
+/* Аватар */
+.avatar img{
+	border-radius: var(--avradius, 25%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* Аватар отключен */
+.no-avatar {
+   display: none !important;
+}
+
+.emoticon {
+  height: 1.5em;
+  width: auto;
+  margin-bottom: -0.4em;
+}
+
+.username {
+  display: inline-block;
+  margin: 0 0.3em 0 0;
+}
+
+.text-message,
+.text-message a {
+  color: rgba(255, 255, 255, 1);
+  /* border-bottom:1px solid #111111 !important; */
+}
+
+.text-message.reply {
+  color: rgba(189, 255, 0, 1) !important;
+}
+
+.text-message.highlighted {
+  background: #4b7dad;
+  border: 4px solid #4b7dad;
+  color: #fff;
+}
+
+/* Изображения отключены */
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+/* Текст удаленного сообщения */
+.text-message.deleted {
+  color: #888 !important;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+}
+
+.font-effect-outline {
+  color: #fff;
+}
+
+.cursor {
+  width: 10px;
+  color: var(--accent, #F2F2F2);
+  /* margin-left: -0.25em; */
+  animation: cursor-blink 0.6s ease-in-out infinite;
+}
+
+@keyframes cursor-blink {
+  0% { opacity: 1; }
+  33% { opacity: 0; }
+  66% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+.badge {
+  color: #a8b3ae;
+  align-self: center;
+  margin-left: 0.35em;
+  position: relative;
+  padding: 0 0.4em;
+  background: #4a4a4a52;
+  border-radius: 0.25em;
+}
+
+:root {
+  --font: 'FSEX300';
+  --font-weight: 500;
+}
+/* ==== Настройки v1.1: размер и форма аватаров, время сообщений ==== */
+.avatar img {
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+}
+
+.timestamp {
+  color: var(--accent, #F2F2F2);
+  opacity: 0.7;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  flex: 0 0 auto;
+}
+
+/* События Live */
+.live_event {
+  margin-top: 4px;
+  padding: 3px;
+  color: var(--accent, #F2F2F2);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+}

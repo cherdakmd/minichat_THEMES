@@ -1,0 +1,654 @@
+{
+  "Icon": "icon.svg",
+  "Language": {
+    "Culture": "ru-RU"
+  },
+  "Name": "Minecraft",
+  "Properties": {
+    "HideMessages": {
+      "Type": "Slider",
+      "Label": "Скрывать сообщения через (секунд)",
+      "Value": 30,
+      "Min": 0,
+      "Max": 120
+    },
+    "MaxMessages": {
+      "Type": "Slider",
+      "Label": "Максимум сообщений",
+      "Value": 8,
+      "Min": 1,
+      "Max": 50
+    },
+    "DeleteMessageText": {
+      "Type": "Text",
+      "Label": "Текст удаленного сообщения",
+      "Value": "[Сообщение удалено]"
+    },
+    "BorderRadius": {
+      "Type": "Slider",
+      "Label": "Скругление краёв (px)",
+      "Value": 0,
+      "Min": 0,
+      "Max": 30
+    },
+    "BorderWidth": {
+      "Type": "Slider",
+      "Label": "Толщина рамки (px)",
+      "Value": 1,
+      "Min": 0,
+      "Max": 8
+    },
+    "BackgroundColor": {
+      "Type": "Color",
+      "Label": "Цвет подложки сообщений",
+      "Value": "#000000"
+    },
+    "AccentColor": {
+      "Type": "Color",
+      "Label": "Акцентный цвет",
+      "Value": "#55FF55"
+    },
+    "TextShadow": {
+      "Type": "Select",
+      "Label": "Тень текста",
+      "Value": "none",
+      "Enumerate": [
+        {
+          "Value": "none",
+          "Label": "Без тени"
+        },
+        {
+          "Value": "soft",
+          "Label": "Мягкая"
+        },
+        {
+          "Value": "hard",
+          "Label": "Жёсткая (пиксельная)"
+        },
+        {
+          "Value": "glow",
+          "Label": "Свечение"
+        },
+        {
+          "Value": "outline",
+          "Label": "Обводка"
+        }
+      ]
+    },
+    "TextShadowColor": {
+      "Type": "Color",
+      "Label": "Цвет тени текста",
+      "Value": "#000000"
+    },
+    "ShowTimestamps": {
+      "Type": "Toggle",
+      "Label": "Показывать время сообщения",
+      "Value": false
+    },
+    "Padding": {
+      "Type": "Slider",
+      "Label": "Отступ внутри сообщений (px)",
+      "Value": 7,
+      "Min": 0,
+      "Max": 24
+    },
+    "FontWeight": {
+      "Type": "Select",
+      "Label": "Насыщенность шрифта",
+      "Value": "normal",
+      "Enumerate": [
+        {
+          "Value": "normal",
+          "Label": "Обычный"
+        },
+        {
+          "Value": "bold",
+          "Label": "Жирный"
+        }
+      ]
+    },
+    "LetterSpacing": {
+      "Type": "Slider",
+      "Label": "Межбуквенный интервал (px)",
+      "Value": 0,
+      "Min": 0,
+      "Max": 6
+    },
+    "AnimationSpeed": {
+      "Type": "Slider",
+      "Label": "Длительность анимации (мс)",
+      "Value": 800,
+      "Min": 100,
+      "Max": 3000,
+      "Step": 50
+    },
+    "AvatarSize": {
+      "Type": "Slider",
+      "Label": "Размер аватара (%)",
+      "Value": 100,
+      "Min": 50,
+      "Max": 200
+    },
+    "AvatarShape": {
+      "Type": "Select",
+      "Label": "Форма аватара",
+      "Value": "square",
+      "Enumerate": [
+        {
+          "Value": "round",
+          "Label": "Круглая"
+        },
+        {
+          "Value": "rounded",
+          "Label": "Скруглённая"
+        },
+        {
+          "Value": "square",
+          "Label": "Квадратная"
+        }
+      ]
+    },
+    "MaxWidth": {
+      "Type": "Slider",
+      "Label": "Максимальная ширина сообщений (%)",
+      "Value": 100,
+      "Min": 40,
+      "Max": 100
+    },
+    "ShowEffect": {
+      "Type": "Select",
+      "Label": "Эффект появления",
+      "Value": "null",
+      "Enumerate": [
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        }
+      ]
+    },
+    "HideEffect": {
+      "Type": "Select",
+      "Label": "Эффект исчезновения",
+      "Value": "fadeOut",
+      "Enumerate": [
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        },
+        {
+          "Value": "Value",
+          "Label": "Label"
+        }
+      ]
+    },
+    "Color": {
+      "Type": "Color",
+      "Label": "Цвет текста",
+      "Value": "#FFFFFF"
+    },
+    "ColorUserName": {
+      "Type": "Color",
+      "Label": "Цвет имени",
+      "Value": "#FFFF55"
+    },
+    "ChatOpacity": {
+      "Type": "Slider",
+      "Label": "Плотность фона строк",
+      "Value": 60,
+      "Min": 0,
+      "Max": 100
+    },
+    "PixelShadow": {
+      "Type": "Toggle",
+      "Label": "Тень текста как в Minecraft",
+      "Value": true
+    },
+    "TextSize": {
+      "Type": "Slider",
+      "Label": "Размер текста",
+      "Value": 18,
+      "Min": 5,
+      "Max": 72,
+      "Step": 1
+    },
+    "Font": {
+      "Type": "Font",
+      "Label": "Шрифт"
+    },
+    "ShowServiceIcons": {
+      "Type": "Toggle",
+      "Label": "Показывать иконки сервисов",
+      "Value": true
+    },
+    "ShowAvatars": {
+      "Type": "Toggle",
+      "Label": "Показывать аватары",
+      "Value": true
+    },
+    "ShowBadges": {
+      "Type": "Toggle",
+      "Label": "Показывать значки",
+      "Value": true
+    },
+    "UseColorUserName": {
+      "Type": "Toggle",
+      "Label": "Использовать оригинальный цвет имени",
+      "Value": true
+    },
+    "ShowLive": {
+      "Type": "Toggle",
+      "Label": "Показывать \"Live\" события",
+      "Value": true
+    },
+    "GlitchDonations": {
+      "Type": "Toggle",
+      "Label": "Глитч-эффект донатов",
+      "Value": true
+    },
+    "ShowConfetti": {
+      "Type": "Toggle",
+      "Label": "Конфетти при донатах",
+      "Value": true
+    },
+    "EnableSound": {
+      "Type": "Toggle",
+      "Label": "Звук при донатах и событиях",
+      "Value": false
+    },
+    "SoundVolume": {
+      "Type": "Slider",
+      "Label": "Громкость звука (%)",
+      "Value": 70,
+      "Min": 0,
+      "Max": 100
+    },
+    "SoundScheme": {
+      "Type": "Select",
+      "Label": "Звуковая схема",
+      "Value": "classic",
+      "Enumerate": [
+        {
+          "Value": "classic",
+          "Label": "Классика"
+        },
+        {
+          "Value": "retro",
+          "Label": "Ретро (8-bit)"
+        },
+        {
+          "Value": "bubble",
+          "Label": "Пузырьки"
+        },
+        {
+          "Value": "crystal",
+          "Label": "Кристалл"
+        }
+      ]
+    },
+    "AutoNameColor": {
+      "Type": "Toggle",
+      "Label": "Автоцвет ника (по имени)",
+      "Value": false
+    },
+    "EnableSnow": {
+      "Type": "Toggle",
+      "Label": "Снегопад на фоне",
+      "Value": false
+    },
+    "SnowAmount": {
+      "Type": "Slider",
+      "Label": "Плотность снега",
+      "Value": 5,
+      "Min": 1,
+      "Max": 10
+    }
+  }
+}

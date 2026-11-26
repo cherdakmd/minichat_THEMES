@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.messages {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+}
+
+/* ---------- Туманность ---------- */
+.space-nebula {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 28%, rgba(72, 0, 140, 0.4) 0%, transparent 42%),
+    radial-gradient(circle at 82% 68%, rgba(0, 82, 160, 0.35) 0%, transparent 46%),
+    radial-gradient(circle at 60% 18%, rgba(0, 200, 255, 0.14) 0%, transparent 34%);
+  animation: nebula-shift 26s ease-in-out infinite alternate;
+}
+
+@keyframes nebula-shift {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.12) translate(-2%, 2%); }
+}
+
+/* ---------- HUD миссии ---------- */
+.hud-frame {
+  position: fixed;
+  inset: 8px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hud-frame::before,
+.hud-frame::after,
+.hud-corner {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  opacity: 0.85;
+}
+
+.hud-frame::before {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--accent, #66E0FF);
+  border-left: 2px solid var(--accent, #66E0FF);
+}
+
+.hud-frame::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--accent, #66E0FF);
+  border-right: 2px solid var(--accent, #66E0FF);
+}
+
+.hud-corner.tr {
+  top: 0;
+  right: 0;
+  border-top: 2px solid var(--accent, #66E0FF);
+  border-right: 2px solid var(--accent, #66E0FF);
+}
+
+.hud-corner.bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid var(--accent, #66E0FF);
+  border-left: 2px solid var(--accent, #66E0FF);
+}
+
+.hud-timer {
+  position: absolute;
+  top: 10px;
+  right: 44px;
+  padding: 2px 10px;
+  font-size: 0.62em;
+  letter-spacing: 0.14em;
+  color: var(--accent, #66E0FF);
+  background: rgba(2, 10, 20, 0.65);
+  border: 1px solid var(--accent-weak, rgba(102, 224, 255, 0.5));
+  border-radius: 2px;
+}
+
+/* ---------- Строки телеметрии ---------- */
+.div_message {
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 0px);
+  padding: var(--pad, 8px);
+  margin-top: 3px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  position: relative;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-table;
+  word-break: break-word;
+  background: var(--bg, rgba(2, 10, 20, 0.55));
+  border: var(--borderw, 1px) solid var(--accent-weak, rgba(102, 224, 255, 0.28));
+  box-shadow: inset 3px 0 0 var(--accent-weak, rgba(102, 224, 255, 0.4));
+}
+
+.div_message img {
+  height: 1em;
+  width: auto;
+  margin-bottom: -0.15em;
+  margin-right: 0.2em;
+}
+
+.avatar img {
+  border-radius: var(--avradius, 0%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+  outline: 1px solid var(--accent-weak, rgba(102, 224, 255, 0.5));
+}
+
+.no-avatar {
+  display: none !important;
+}
+
+.emoticon {
+  height: 1.5em;
+  width: auto;
+  margin-bottom: -0.4em;
+}
+
+.username {
+  display: inline-block;
+  margin: 0 0.35em 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.timestamp {
+  color: var(--accent, #66E0FF);
+  opacity: 0.85;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  letter-spacing: 0.08em;
+}
+
+.text-message,
+.text-message a {
+  color: rgba(255, 255, 255, 1);
+}
+
+.text-message.reply {
+  color: #B6FFC9 !important;
+}
+
+.text-message.highlighted {
+  background: rgba(102, 224, 255, 0.08);
+  outline: 1px solid var(--accent, #66E0FF);
+  color: #EAFBFF;
+}
+
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+.text-message.deleted {
+  color: rgba(140, 180, 200, 0.45) !important;
+  text-decoration: line-through;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+  outline: 1px solid var(--accent-weak, rgba(102, 224, 255, 0.5));
+}
+
+/* События Live: телеметрия */
+.live_event {
+  margin-top: 3px;
+  padding: var(--pad, 8px);
+  color: var(--accent, #66E0FF);
+  letter-spacing: 0.08em;
+  background: var(--bg, rgba(2, 10, 20, 0.55));
+  border: 1px dashed var(--accent-weak, rgba(102, 224, 255, 0.4));
+}
+
+:root {
+  --font: 'Orbitron', 'Play', 'Courier New', monospace;
+  --font-weight: 500;
+}

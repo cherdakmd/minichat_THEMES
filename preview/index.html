@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minichat THEMES — превью и конструктор</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --panel2: #1c2330;
+    --border: #2b3444;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #4f8cff;
+    --accent2: #b967ff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.45 "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 16px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  h1 { font-size: 17px; letter-spacing: 0.04em; white-space: nowrap; }
+  h1 b { color: var(--accent); }
+  .toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .toolbar label { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 12.5px; }
+  select, input[type=range] { accent-color: var(--accent); }
+  select { background: var(--panel2); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 3px 6px; }
+  button {
+    background: var(--panel2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12.5px;
+  }
+  button:hover { border-color: var(--accent); }
+  button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  main { flex: 1; display: flex; min-height: 0; }
+
+  nav {
+    width: 232px;
+    flex: 0 0 auto;
+    background: var(--panel);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .theme-btn { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; padding: 7px 10px; border-radius: 8px; font-size: 13px; }
+  .theme-btn img { width: 26px; height: 26px; border-radius: 6px; flex: 0 0 auto; }
+  .theme-btn .t-name { flex: 1; }
+  .theme-btn .t-desc { display: block; font-size: 10.5px; color: var(--muted); font-weight: 400; }
+  .theme-btn.active { background: var(--accent); border-color: var(--accent); }
+  .theme-btn.active .t-desc { color: rgba(255,255,255,.75); }
+
+  .stage-wrap { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .stage { flex: 1; margin: 14px; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; position: relative; min-height: 0; }
+  .stage iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .stage.dark { background: #0b0f14; }
+  .stage.bright { background: #e9edf2; }
+  .stage.checker {
+    background: conic-gradient(#c9ccd1 0 25%, #f2f3f5 0 50%, #c9ccd1 0 75%, #f2f3f5 0) 0 0 / 24px 24px;
+  }
+  .stage.game {
+    background:
+      radial-gradient(circle at 76% 20%, #ffef9e 0 6.5%, rgba(255,239,158,0) 8%),
+      radial-gradient(circle at 18% 12%, #ffffffcc 0 4%, rgba(255,255,255,0) 5%),
+      radial-gradient(circle at 30% 15%, #ffffffb0 0 3%, rgba(255,255,255,0) 4.2%),
+      linear-gradient(#5ab9ff 0 58%, #71c94e 58% 74%, #4c8a3a 74% 100%);
+  }
+
+  /* ---------- Редактор ---------- */
+  aside {
+    width: 330px;
+    flex: 0 0 auto;
+    background: var(--panel);
+    border-left: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 12px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+  }
+  body.editor-open aside { display: flex; }
+  .ed-title { display: flex; align-items: center; justify-content: space-between; }
+  .ed-title h2 { font-size: 14px; letter-spacing: 0.05em; }
+  .ed-search {
+    width: 100%;
+    background: var(--panel2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 12.5px;
+  }
+  .ed-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+  .ed-actions button { flex: 1 1 45%; }
+  .ed-actions .primary { background: #25603a; border-color: #2ea043; }
+  .ed-actions .primary:hover { border-color: #3fd166; }
+  .ed-list { display: flex; flex-direction: column; gap: 8px; }
+  .prop {
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+  .prop .p-label { font-size: 12px; color: var(--muted); margin-bottom: 5px; display: flex; justify-content: space-between; gap: 8px; }
+  .prop .p-label .p-val { color: var(--text); font-weight: 600; white-space: nowrap; }
+  .prop input[type=range] { width: 100%; }
+  .prop input[type=text], .prop select {
+    width: 100%;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 7px;
+    font-size: 12.5px;
+  }
+  .prop .p-row { display: flex; align-items: center; gap: 8px; }
+  .prop input[type=color] {
+    width: 46px; height: 26px; padding: 0; border: 1px solid var(--border);
+    border-radius: 6px; background: var(--bg); cursor: pointer;
+  }
+  .prop input[type=checkbox] { width: 17px; height: 17px; accent-color: var(--accent); cursor: pointer; }
+  .prop .p-alpha { flex: 1; }
+  .p-type { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .ed-hint { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+  .ed-hint b { color: var(--text); }
+
+  footer {
+    padding: 7px 16px;
+    color: var(--muted);
+    font-size: 12px;
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+  }
+  footer b { color: var(--text); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Minichat <b>THEMES</b> — превью и <b>конструктор</b></h1>
+  <div class="toolbar">
+    <label>Фон
+      <select id="backdrop">
+        <option value="dark">Тёмный</option>
+        <option value="game">Игра (яркий)</option>
+        <option value="bright">Светлый</option>
+        <option value="checker">Прозрачность</option>
+      </select>
+    </label>
+    <label>Скорость
+      <input type="range" id="rate" min="0.25" max="3" step="0.25" value="1">
+      <span id="rate-val">1×</span>
+    </label>
+    <button id="pause">⏸ Пауза</button>
+    <button id="clear">🗑</button>
+    <button id="donate">💰 Донат</button>
+    <button id="live">⚡ Событие</button>
+    <button id="sound">🔊 Звук</button>
+    <button id="editor-toggle">🎛 Редактор</button>
+  </div>
+</header>
+
+<main>
+  <nav id="theme-list"></nav>
+  <div class="stage-wrap">
+    <div class="stage dark" id="stage">
+      <iframe id="frame" title="Превью темы"></iframe>
+    </div>
+  </div>
+
+  <aside id="editor">
+    <div class="ed-title">
+      <h2>🎛 Конструктор темы</h2>
+      <button id="ed-reset" title="Сбросить настройки темы">🔄</button>
+    </div>
+    <input class="ed-search" id="ed-search" type="text" placeholder="Поиск настройки…">
+    <div class="ed-actions">
+      <button class="primary" id="ed-download">⬇️ manifest.json</button>
+      <button id="ed-random">🎲 Рандом</button>
+      <button id="ed-link">🔗 Ссылка-пресет</button>
+      <button id="ed-sound-test">🔊 Тест звука</button>
+    </div>
+    <div class="ed-hint">
+      Настройки применяются <b>на лету</b>. Кнопка «⬇️ manifest.json» скачивает файл с
+      текущими значениями — положи его в папку темы (заменив старый), и Minichat подхватит
+      настройки. «🎲 Рандом» — случайный стиль за секунду. «🔗 Ссылка-пресет» копирует
+      адрес с зашитыми настройками — отправь другу.
+    </div>
+    <div class="ed-list" id="ed-list"></div>
+  </aside>
+</main>
+
+<footer>
+  Превью работает на заглушке <b>preview/stubs/Additions/widget.js</b> (имитация чата).
+  В реальном Minichat темы используют свой <b>Additions/widget.js</b>. Запуск: <b>python3 preview/serve.py</b>
+</footer>
+
+<script>
+  var THEMES = [
+    { id: 'Matrix',    name: 'Матрица',      desc: 'терминал, цифровой дождь' },
+    { id: 'Arcade',    name: 'Аркада',        desc: 'пиксельная игра 80-х' },
+    { id: 'Windows95', name: 'Windows 95',    desc: 'ретро-окно с треем' },
+    { id: 'Neon',      name: 'Неон',          desc: 'стекло и свечение' },
+    { id: 'Vaporwave', name: 'Вейпорвейв',    desc: 'сетка, солнце, градиенты' },
+    { id: 'Comic',     name: 'Комикс',        desc: 'пузыри и обводка' },
+    { id: 'Minecraft', name: 'Minecraft',     desc: 'строки как в игре' },
+    { id: 'CRT',       name: 'CRT ТВ',        desc: 'телетекст, развёртка, помехи' },
+    { id: 'SplitFlap', name: 'Split-flap',    desc: 'механическое табло' },
+    { id: 'Space',     name: 'Космос',        desc: 'звёзды, туманность, HUD' },
+    { id: 'Cyberpunk', name: 'Cyberpunk',     desc: 'глитч, срезанные углы' },
+    { id: 'Halloween', name: 'Хэллоуин',      desc: 'мыши, туман, тыквы' },
+    { id: 'NewYear',   name: 'Новый год',     desc: 'гирлянда, снег, фейерверки' },
+    { id: 'Dos',       name: 'DOS',           desc: 'оригинальная тема' },
+  ];
+
+  var frame = document.getElementById('frame');
+  var stage = document.getElementById('stage');
+  var current = null;
+  var paused = false;
+
+  /* ---------- Редактор: состояние ---------- */
+  var manifestCache = {};      // id -> manifest JSON
+  var editedByTheme = {};      // id -> { key: value }
+  var editorBuilt = false;
+
+  /* ---------- Список тем ---------- */
+  var list = document.getElementById('theme-list');
+  THEMES.forEach(function (t) {
+    var btn = document.createElement('button');
+    btn.className = 'theme-btn';
+    btn.dataset.id = t.id;
+    btn.innerHTML =
+      '<img src="/themes/' + t.id + '/icon.svg" alt="">' +
+      '<span class="t-name">' + t.name +
+      '<span class="t-desc">' + t.desc + '</span></span>';
+    btn.addEventListener('click', function () { selectTheme(t.id); });
+    list.appendChild(btn);
+  });
+
+  /* ---------- Хэш-пресеты ---------- */
+  function b64uEncode(str) {
+    return btoa(unescape(encodeURIComponent(str))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function b64uDecode(str) {
+    str = str.replace(/-/g, '+').replace(/_/g, '/');
+    while (str.length % 4) str += '=';
+    return decodeURIComponent(escape(atob(str)));
+  }
+  function parseHash() {
+    var h = location.hash.replace(/^#/, '');
+    if (!h) return null;
+    var parts = h.split('&'), out = {};
+    parts.forEach(function (p) {
+      var kv = p.split('=');
+      out[kv[0]] = kv.slice(1).join('=');
+    });
+    try {
+      return { theme: out.t, values: out.s ? JSON.parse(b64uDecode(out.s)) : null };
+    } catch (e) { return null; }
+  }
+  function updateHash() {
+    var edited = editedByTheme[current];
+    var h = '#t=' + encodeURIComponent(current);
+    if (edited && Object.keys(edited).length)
+      h += '&s=' + b64uEncode(JSON.stringify(edited));
+    history.replaceState(null, '', h);
+  }
+
+  /* ---------- Выбор темы ---------- */
+  function selectTheme(id) {
+    current = id;
+    editorBuilt = false;
+    Array.prototype.forEach.call(list.children, function (b) {
+      b.classList.toggle('active', b.dataset.id === id);
+    });
+    var src = '/themes/' + id + '/index.html?t=' + Date.now();
+    frame.src = src;
+    frame.onload = function () {
+      postToFrame({ cmd: 'rate', value: parseFloat(document.getElementById('rate').value) });
+      postToFrame({ cmd: 'pause', value: paused });
+      var edited = editedByTheme[id];
+      if (edited && Object.keys(edited).length)
+        postToFrame({ cmd: 'applyMany', values: edited });
+      buildEditor();
+    };
+    updateHash();
+  }
+
+  function postToFrame(msg) {
+    if (frame.contentWindow) {
+      try { frame.contentWindow.postMessage(msg, '*'); } catch (e) {}
+    }
+  }
+
+  /* ---------- Редактор ---------- */
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function fetchManifest(id) {
+    if (manifestCache[id]) return Promise.resolve(manifestCache[id]);
+    return fetch('/themes/' + id + '/manifest.json', { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (m) { manifestCache[id] = m; return m; })
+      .catch(function () { return null; });
+  }
+
+  function currentValue(key, prop) {
+    var edited = editedByTheme[current] || {};
+    if (key in edited) return edited[key];
+    return prop.Value;
+  }
+
+  function setProp(key, value) {
+    if (!editedByTheme[current]) editedByTheme[current] = {};
+    editedByTheme[current][key] = value;
+    postToFrame({ cmd: 'set', key: key, value: value });
+    updateHash();
+  }
+
+  function fmtVal(v) {
+    if (typeof v === 'boolean') return v ? 'вкл' : 'выкл';
+    if (typeof v === 'string' && /^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$/.test(v)) return v.toUpperCase();
+    return String(v);
+  }
+
+  function buildEditor() {
+    var listEl = document.getElementById('ed-list');
+    listEl.innerHTML = '';
+    fetchManifest(current).then(function (m) {
+      if (!m || !m.Properties) return;
+      var filter = (document.getElementById('ed-search').value || '').toLowerCase();
+      Object.keys(m.Properties).forEach(function (key) {
+        var prop = m.Properties[key];
+        var label = prop.Label || key;
+        if (filter && (label + ' ' + key).toLowerCase().indexOf(filter) === -1) return;
+        var type = prop.Type;
+        var val = currentValue(key, prop);
+
+        var wrap = document.createElement('div');
+        wrap.className = 'prop';
+        wrap.dataset.key = key;
+        wrap.dataset.search = (label + ' ' + key).toLowerCase();
+
+        var head = '<div class="p-label"><span class="p-type">' + esc(type) + '</span>' +
+          '<span title="' + esc(label) + '">' + esc(label) + ' <span class="p-val" data-val="' + esc(key) + '">' + esc(fmtVal(val)) + '</span></span></div>';
+
+        if (type === 'Slider') {
+          wrap.innerHTML = head +
+            '<input type="range" data-key="' + esc(key) + '" min="' + prop.Min + '" max="' + prop.Max + '"' +
+            (prop.Step ? ' step="' + prop.Step + '"' : ' step="1"') + ' value="' + esc(val) + '">';
+          var range = wrap.querySelector('input');
+          range.addEventListener('input', function () {
+            var v = parseFloat(range.value);
+            setProp(key, v);
+            wrap.querySelector('.p-val[data-val]').textContent = fmtVal(v);
+          });
+        } else if (type === 'Toggle') {
+          wrap.innerHTML = head +
+            '<div class="p-row"><input type="checkbox" data-key="' + esc(key) + '"' + (val ? ' checked' : '') + '></div>';
+          wrap.querySelector('input').addEventListener('change', function (e) {
+            var v = e.target.checked;
+            setProp(key, v);
+            wrap.querySelector('.p-val[data-val]').textContent = fmtVal(v);
+          });
+        } else if (type === 'Color') {
+          var hex = String(val || '#ffffff');
+          var alpha = null;
+          if (/^#[0-9A-Fa-f]{8}$/.test(hex)) {
+            alpha = parseInt(hex.slice(7, 9), 16) / 255;
+            hex = hex.slice(0, 7);
+          }
+          var row = '<div class="p-row"><input type="color" data-key="' + esc(key) + '" value="' + esc(hex) + '">';
+          if (alpha !== null)
+            row += '<input type="range" class="p-alpha" data-alpha="' + esc(key) + '" min="0" max="100" value="' + Math.round(alpha * 100) + '">';
+          row += '</div>';
+          wrap.innerHTML = head + row;
+          var colorInp = wrap.querySelector('input[type=color]');
+          var alphaInp = wrap.querySelector('.p-alpha');
+          function emitColor() {
+            var full = colorInp.value + (alphaInp ?
+              Math.round(parseFloat(alphaInp.value) / 100 * 255).toString(16).padStart(2, '0') : '');
+            setProp(key, full);
+            wrap.querySelector('.p-val[data-val]').textContent = fmtVal(full);
+          }
+          colorInp.addEventListener('input', emitColor);
+          if (alphaInp) alphaInp.addEventListener('input', emitColor);
+        } else if (type === 'Select') {
+          var opts = (prop.Enumerate || []).map(function (o) {
+            return '<option value="' + esc(o.Value) + '"' + (o.Value == val ? ' selected' : '') + '>' + esc(o.Label) + '</option>';
+          }).join('');
+          wrap.innerHTML = head + '<select data-key="' + esc(key) + '">' + opts + '</select>';
+          wrap.querySelector('select').addEventListener('change', function (e) {
+            var v = e.target.value;
+            setProp(key, v);
+            wrap.querySelector('.p-val[data-val]').textContent = fmtVal(v);
+          });
+        } else { // Text / Font
+          wrap.innerHTML = head + '<input type="text" data-key="' + esc(key) + '" value="' + esc(val) + '">';
+          var inp = wrap.querySelector('input');
+          inp.addEventListener('change', function () {
+            var v = inp.value;
+            setProp(key, v);
+            wrap.querySelector('.p-val[data-val]').textContent = fmtVal(v);
+          });
+        }
+        listEl.appendChild(wrap);
+      });
+      editorBuilt = true;
+    });
+  }
+
+  /* ---------- Экспорт manifest.json ---------- */
+  function downloadManifest() {
+    fetchManifest(current).then(function (m) {
+      if (!m) return;
+      var edited = editedByTheme[current] || {};
+      Object.keys(edited).forEach(function (k) {
+        if (m.Properties[k] && m.Properties[k].Value !== undefined)
+          m.Properties[k].Value = edited[k];
+      });
+      var json = JSON.stringify(m, null, 2).replace(/\n/g, '\r\n');
+      var blob = new Blob([json], { type: 'application/json;charset=utf-8' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'manifest.json';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+      alert('manifest.json скачан.\n\nПоложи его в папку темы (например Themes/Neon/), заменив старый файл — и Minichat подхватит настройки.');
+    });
+  }
+
+  function copyLink() {
+    updateHash();
+    var url = location.origin + location.pathname + location.hash;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(
+        function () { alert('Ссылка-пресет скопирована:\n' + url); },
+        function () { prompt('Скопируй ссылку вручную:', url); });
+    } else {
+      prompt('Скопируй ссылку вручную:', url);
+    }
+  }
+
+  /* ---------- Рандомайзер ---------- */
+  function rnd(a, b) { return Math.round(a + Math.random() * (b - a)); }
+  function rndHex() {
+    var h = rnd(0, 360), s = rnd(55, 90), l = rnd(45, 70);
+    // hsl -> hex
+    function f(n) {
+      var k = (n + h / 30) % 12;
+      var c = l / 100 - s / 100 * Math.min(l / 100, 1 - l / 100) * Math.max(-1, Math.min(k - 3, 9 - k, 1));
+      return Math.round(255 * c).toString(16).padStart(2, '0');
+    }
+    return '#' + f(0) + f(8) + f(4);
+  }
+  var SHADOWS = ['none', 'soft', 'hard', 'glow', 'outline'];
+
+  function randomize() {
+    var sets = {
+      AccentColor: rndHex(),
+      Color: rndHex(),
+      ColorUserName: rndHex(),
+      BorderRadius: [0, 0, 4, 10, 16, 24][rnd(0, 5)],
+      TextShadow: SHADOWS[rnd(0, SHADOWS.length - 1)],
+      TextShadowColor: rndHex(),
+      ShowTimestamps: Math.random() < 0.5,
+      FontWeight: Math.random() < 0.5 ? 'normal' : 'bold',
+      LetterSpacing: rnd(0, 3),
+      EnableSnow: Math.random() < 0.35,
+      AvatarShape: ['round', 'rounded', 'square'][rnd(0, 2)],
+    };
+    Object.keys(sets).forEach(function (k) { setProp(k, sets[k]); });
+    // перерисовать значения в панели
+    buildEditor();
+  }
+
+  /* ---------- Панель управления ---------- */
+  document.getElementById('backdrop').addEventListener('change', function (e) {
+    stage.className = 'stage ' + e.target.value;
+  });
+
+  var rateInput = document.getElementById('rate');
+  rateInput.addEventListener('input', function () {
+    document.getElementById('rate-val').textContent = rateInput.value + '×';
+    postToFrame({ cmd: 'rate', value: parseFloat(rateInput.value) });
+  });
+
+  var pauseBtn = document.getElementById('pause');
+  pauseBtn.addEventListener('click', function () {
+    paused = !paused;
+    pauseBtn.textContent = paused ? '▶ Пуск' : '⏸ Пауза';
+    pauseBtn.classList.toggle('active', paused);
+    postToFrame({ cmd: 'pause', value: paused });
+  });
+
+  document.getElementById('clear').addEventListener('click', function () { postToFrame({ cmd: 'clear' }); });
+  document.getElementById('donate').addEventListener('click', function () { postToFrame({ cmd: 'trigger', kind: 'donation' }); });
+  document.getElementById('live').addEventListener('click', function () { postToFrame({ cmd: 'trigger', kind: 'live' }); });
+  document.getElementById('sound').addEventListener('click', function () { postToFrame({ cmd: 'sound' }); });
+
+  document.getElementById('editor-toggle').addEventListener('click', function () {
+    document.body.classList.toggle('editor-open');
+    this.classList.toggle('active');
+  });
+  document.getElementById('ed-reset').addEventListener('click', function () {
+    delete editedByTheme[current];
+    selectTheme(current);
+  });
+  document.getElementById('ed-search').addEventListener('input', buildEditor);
+  document.getElementById('ed-download').addEventListener('click', downloadManifest);
+  document.getElementById('ed-random').addEventListener('click', randomize);
+  document.getElementById('ed-link').addEventListener('click', copyLink);
+  document.getElementById('ed-sound-test').addEventListener('click', function () { postToFrame({ cmd: 'sound' }); });
+
+  /* ---------- Старт ---------- */
+  (function init() {
+    var h = parseHash();
+    if (h && h.theme && THEMES.some(function (t) { return t.id === h.theme; })) {
+      if (h.values) editedByTheme[h.theme] = h.values;
+      selectTheme(h.theme);
+    } else {
+      selectTheme('Matrix');
+    }
+  })();
+</script>
+</body>
+</html>

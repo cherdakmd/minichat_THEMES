@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+/* Score-бар */
+.scorebar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.25em 0.5em 0.45em;
+  margin-bottom: 0.35em;
+  color: #FFD700;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
+    2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+}
+
+.score-cell {
+  display: inline-flex;
+  gap: 0.6em;
+  align-items: baseline;
+}
+
+.score-label {
+  color: #FF3E3E;
+  letter-spacing: 0.08em;
+}
+
+.score-value {
+  color: var(--accent, #FFD700);
+}
+
+/* Сообщения */
+.messages {
+  position: relative;
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+  image-rendering: pixelated;
+}
+
+.div_message {
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 0px);
+  padding: var(--pad, 10px);
+  margin-top: 0.5em;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  position: relative;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-table;
+  word-break: break-word;
+  background: var(--bg, rgba(8, 4, 24, 0.62));
+  border: var(--borderw, 3px) solid var(--border-color, #FFFFFF);
+  box-shadow: 0 0 0 3px #000000, 6px 6px 0 3px rgba(0, 0, 0, 0.45);
+}
+
+.div_message img {
+  height: 1em;
+  width: auto;
+  margin-bottom: -0.15em;
+  margin-right: 0.2em;
+  image-rendering: pixelated;
+}
+
+/* Аватар */
+.avatar img {
+  border-radius: var(--avradius, 0%);
+  border: 3px solid #FFD700;
+  box-shadow: 0 0 0 2px #000;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+/* Аватар отключен */
+.no-avatar {
+  display: none !important;
+}
+
+.emoticon {
+  height: 1.5em;
+  width: auto;
+  margin-bottom: -0.4em;
+}
+
+.username {
+  display: inline-block;
+  margin: 0 0.3em 0 0;
+}
+
+.text-message.reply {
+  color: #7CFF4F !important;
+}
+
+.text-message.highlighted {
+  background: #001B4F;
+  border: 2px solid #FFD700;
+  color: #FFFFFF;
+  padding: 0.1em 0.25em;
+}
+
+/* Изображения отключены */
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+/* Текст удаленного сообщения */
+.text-message.deleted {
+  color: #8A8A8A !important;
+  text-decoration: line-through;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+  image-rendering: pixelated;
+  border: 3px solid #FFF;
+  box-shadow: 0 0 0 3px #000;
+}
+
+/* Курсор */
+.cursor {
+  color: var(--accent, #FFD700);
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000;
+  animation: cursor-blink 0.6s steps(1) infinite;
+}
+
+@keyframes cursor-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* INSERT COIN */
+.insert-coin {
+  margin-top: 0.55em;
+  text-align: center;
+  color: #FF3E3E;
+  letter-spacing: 0.2em;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
+    2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+  animation: coin-blink 1s steps(1) infinite;
+}
+
+@keyframes coin-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+:root {
+  --font: 'Press Start 2P', 'Courier New', monospace;
+  --font-weight: 400;
+}
+
+/* События Live */
+.live_event {
+  margin-top: 0.5em;
+  padding: 0.4em 0.6em;
+  color: var(--accent, #7CFF4F);
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000,
+    2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+}
+
+.live_event::before {
+  content: "! ";
+  color: #FFD700;
+}
+
+/* ==== Настройки v1.1: размер и форма аватаров, время сообщений ==== */
+.avatar img {
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+}
+
+.timestamp {
+  color: var(--accent, #FFD700);
+  opacity: 0.7;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  flex: 0 0 auto;
+}

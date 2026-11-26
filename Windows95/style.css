@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Окно Windows 95 */
+.win-window {
+  margin: 6px;
+  border-radius: var(--radius, 0px);
+  background: #C0C0C0;
+  color: #000;
+  box-shadow: inset -1px -1px 0 #000, inset 1px 1px 0 #DFDFDF,
+    inset -2px -2px 0 #808080, inset 2px 2px 0 #FFF,
+    3px 3px 0 rgba(0, 0, 0, 0.35);
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+}
+
+/* Заголовок окна */
+.win-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 2px;
+  padding: 2px 3px;
+  background: linear-gradient(90deg, #000080 0%, #1084D0 100%);
+  color: #FFF;
+  user-select: none;
+}
+
+.win-icon {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  background: #C0C0C0;
+  box-shadow: inset -1px -1px 0 #000, inset 1px 1px 0 #FFF;
+  position: relative;
+}
+
+.win-icon::after {
+  content: "C";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  line-height: 1;
+  color: #000080;
+  font-weight: 700;
+  font-family: var(--font);
+}
+
+.win-title {
+  flex: 1 1 auto;
+  font-size: 0.62em;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.win-buttons {
+  display: flex;
+  gap: 2px;
+  flex: 0 0 auto;
+}
+
+.win-btn {
+  width: 16px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #C0C0C0;
+  color: #000;
+  font-size: 9px;
+  line-height: 1;
+  font-family: var(--font);
+  box-shadow: inset -1px -1px 0 #000, inset 1px 1px 0 #FFF,
+    inset -2px -2px 0 #808080;
+}
+
+.win-btn-close {
+  margin-left: 1px;
+}
+
+/* Клиентская область */
+.win-body {
+  margin: 2px;
+  padding: 3px;
+  background: var(--bg, #FFFFFF);
+  box-shadow: inset -1px -1px 0 #FFF, inset 1px 1px 0 #808080,
+    inset -2px -2px 0 #DFDFDF, inset 2px 2px 0 #000;
+}
+
+.messages {
+  min-height: 1.2em;
+  max-height: 48vh;
+  overflow-y: hidden;
+}
+
+.display_message {
+  padding: var(--pad, 3px);
+  margin-top: 1px;
+  word-wrap: break-word;
+  word-break: break-word;
+  display: flex;
+  align-items: baseline;
+  gap: 0.32em;
+}
+
+.display_message img {
+  height: 0.85em;
+  width: auto;
+}
+
+/* Аватар */
+.avatar img {
+  width: var(--avsize, 1.35em);
+  height: var(--avsize, 1.35em);
+  border-radius: var(--avradius, 0%);
+  border: 1px solid #808080;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+/* Аватар отключен */
+.no-avatar {
+  display: none !important;
+}
+
+.emoticon {
+  height: 1.2em;
+  width: auto;
+  margin-bottom: -0.25em;
+}
+
+.service-icon img,
+.badges img {
+  image-rendering: pixelated;
+}
+
+.username {
+  flex: 0 0 auto;
+  font-weight: 700;
+}
+
+/* Ссылки как в Win95 */
+.text-message,
+.text-message a {
+  color: #000;
+}
+
+.text-message a {
+  color: #0000CC;
+  text-decoration: underline;
+}
+
+.text-message.reply {
+  color: #0000CC !important;
+  text-decoration: underline;
+}
+
+.text-message.highlighted {
+  background: var(--accent, #000080);
+  color: #FFF;
+  padding: 1px 3px;
+}
+
+/* Изображения отключены */
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+/* Текст удаленного сообщения */
+.text-message.deleted {
+  color: #808080 !important;
+  text-decoration: line-through;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+  border: 1px solid #808080;
+}
+
+/* Трей с часами */
+.win-tray {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2px;
+  padding: 1px 2px;
+}
+
+.tray-clock {
+  padding: 2px 6px;
+  font-size: 0.62em;
+  background: #C0C0C0;
+  box-shadow: inset -1px -1px 0 #FFF, inset 1px 1px 0 #808080;
+}
+
+:root {
+  --font: 'W95FA', 'Pixelify Sans', 'MS Sans Serif', 'Microsoft Sans Serif', Tahoma, Arial, sans-serif;
+  --font-weight: 400;
+}
+
+/* События Live */
+.live_event {
+  margin: 0 0 3px;
+  padding: 2px 3px;
+  color: var(--accent, #000080);
+  font-size: 0.8em;
+  border-bottom: 1px solid #DFDFDF;
+}
+
+.live_event::before {
+  content: "i";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 11px;
+  height: 11px;
+  margin-right: 4px;
+  background: #000080;
+  color: #FFF;
+  font-weight: 700;
+  font-size: 8px;
+  vertical-align: middle;
+}
+
+/* ==== Настройки v1.1: размер и форма аватаров, время сообщений ==== */
+.avatar img {
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+}
+
+.timestamp {
+  color: var(--accent, #000080);
+  opacity: 0.7;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  flex: 0 0 auto;
+}

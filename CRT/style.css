@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.messages {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+}
+
+.div_message {
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 0px);
+  padding: var(--pad, 8px);
+  margin-top: 3px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  position: relative;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-table;
+  word-break: break-word;
+  background: var(--bg, rgba(5, 5, 5, 0.88));
+  border: var(--borderw, 0px) solid var(--accent-weak, transparent);
+}
+
+.div_message img {
+  height: 1em;
+  width: auto;
+  margin-bottom: -0.15em;
+  margin-right: 0.2em;
+}
+
+.avatar img {
+  border-radius: var(--avradius, 25%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+  filter: saturate(0.45) brightness(0.92) sepia(0.2) hue-rotate(70deg);
+}
+
+.no-avatar {
+  display: none !important;
+}
+
+.emoticon {
+  height: 1.5em;
+  width: auto;
+  margin-bottom: -0.4em;
+}
+
+.username {
+  display: inline-block;
+  margin: 0 0.3em 0 0;
+  font-weight: 700;
+}
+
+.timestamp {
+  color: var(--accent, #FFCC00);
+  opacity: 0.85;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  flex: 0 0 auto;
+}
+
+.text-message,
+.text-message a {
+  color: rgba(255, 255, 255, 1);
+}
+
+.text-message.reply {
+  color: #7CFF9B !important;
+}
+
+.text-message.highlighted {
+  background: rgba(255, 204, 0, 0.12);
+  border: 1px solid var(--accent, #FFCC00);
+  color: #FFF6D8;
+}
+
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+.text-message.deleted {
+  color: rgba(120, 160, 130, 0.5) !important;
+  text-decoration: line-through;
+  text-shadow: none !important;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+  filter: saturate(0.5) sepia(0.3) hue-rotate(70deg);
+}
+
+.cursor {
+  width: 10px;
+  color: var(--accent, #FFCC00);
+  animation: cursor-blink 0.6s ease-in-out infinite;
+}
+
+@keyframes cursor-blink {
+  0% { opacity: 1; }
+  33% { opacity: 0; }
+  66% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* ---------- OSD ---------- */
+.crt-osd {
+  position: fixed;
+  top: 10px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+  color: var(--accent, #FFCC00);
+  font-size: 0.72em;
+  letter-spacing: 0.14em;
+  text-shadow: 0 0 6px rgba(255, 204, 0, 0.85), 1px 1px 0 #000, -1px 1px 0 #000;
+  pointer-events: none;
+}
+
+.crt-osd.osd-bottom {
+  top: auto;
+  bottom: 10px;
+  justify-content: flex-start;
+}
+
+.osd-teletext {
+  opacity: 0.85;
+}
+
+/* ---------- Оверлей экрана ---------- */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,
+    rgba(0, 0, 0, 0.32) 0px,
+    rgba(0, 0, 0, 0.32) 1px,
+    transparent 1px,
+    transparent 3px);
+}
+
+.flicker {
+  position: absolute;
+  inset: 0;
+  background: rgba(160, 255, 190, 0.03);
+  animation: crt-flicker 3.4s steps(1) infinite;
+}
+
+@keyframes crt-flicker {
+  0%, 100% { opacity: 0.35; }
+  7%  { opacity: 0.75; }
+  8%  { opacity: 0.25; }
+  23% { opacity: 0.55; }
+  24% { opacity: 0.3; }
+  41% { opacity: 0.8; }
+  42% { opacity: 0.35; }
+  67% { opacity: 0.6; }
+  68% { opacity: 0.3; }
+}
+
+.curve {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center,
+    rgba(0, 0, 0, 0) 56%,
+    rgba(0, 0, 0, 0.28) 78%,
+    rgba(0, 0, 0, 0.6) 100%);
+}
+
+/* ---------- Помехи при донате ---------- */
+.crt-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.75;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  animation: crt-noise-jump 0.12s steps(2) infinite;
+}
+
+@keyframes crt-noise-jump {
+  0%   { background-position: 0 0; }
+  50%  { background-position: -37px 53px; }
+  100% { background-position: 61px -29px; }
+}
+
+/* События Live: блок телетекста */
+.live_event {
+  margin-top: 4px;
+  padding: var(--pad, 8px);
+  color: var(--accent, #FFCC00);
+  font-weight: 700;
+  background: var(--bg, rgba(5, 5, 5, 0.88));
+  border: 1px dashed var(--accent-weak, rgba(255, 204, 0, 0.5));
+}
+
+.display_message-end { display: none; }
+
+:root {
+  --font: 'FSEX300', 'Courier New', monospace;
+  --font-weight: 500;
+}

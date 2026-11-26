@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Солнце */
+.vapor-sun {
+  position: fixed;
+  top: 4%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-left: -75px;
+  border-radius: 50%;
+  background: linear-gradient(#FFFB7D 0%, #FFB86B 35%, #FF71CE 70%, #B967FF 100%);
+  box-shadow: 0 0 60px rgba(255, 113, 206, 0.7), 0 0 120px rgba(185, 103, 255, 0.4);
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: repeating-linear-gradient(to bottom, #000 0 7px, #000 7px, rgba(0, 0, 0, 0.35) 7px 9px, #000 9px, rgba(0,0,0,0.85) 10px);
+  mask-image: repeating-linear-gradient(to bottom, #000 0 7px, #000 7px, rgba(0, 0, 0, 0.35) 7px 9px, #000 9px, rgba(0,0,0,0.85) 10px);
+}
+
+/* Неоновая сетка */
+.vapor-grid {
+  position: fixed;
+  left: -60%;
+  right: -60%;
+  top: 55%;
+  bottom: -65%;
+  background:
+    linear-gradient(rgba(255, 113, 206, 0.5) 1.5px, transparent 1.5px) 0 0 / 44px 44px,
+    linear-gradient(90deg, rgba(1, 205, 205, 0.5) 1.5px, transparent 1.5px) 0 0 / 44px 44px;
+  transform: perspective(220px) rotateX(58deg);
+  animation: grid-move 5s linear infinite;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes grid-move {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 0 44px, 0 0; }
+}
+
+.messages {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+}
+
+.div_message {
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 16px);
+  padding: var(--pad, 12px);
+  margin-top: 0.45em;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  position: relative;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-table;
+  word-break: break-word;
+  background: linear-gradient(135deg, rgba(58, 12, 73, 0.55) 0%, rgba(10, 28, 63, 0.55) 100%);
+  background-color: var(--bgc, transparent);
+  border: var(--borderw, 1px) solid rgba(255, 113, 206, 0.35);
+  box-shadow: 0 0 calc(var(--glow) * 2px) rgba(255, 113, 206, 0.2),
+    inset 0 0 calc(var(--glow) * 2px) rgba(1, 205, 205, 0.12);
+}
+
+.div_message img {
+  height: 1em;
+  width: auto;
+  margin-bottom: -0.15em;
+  margin-right: 0.2em;
+}
+
+/* Аватар */
+.avatar img {
+  border-radius: var(--avradius, 50%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: var(--borderw, 2px) solid rgba(1, 205, 205, 0.6);
+  box-shadow: 0 0 calc(var(--glow) * 1.5px) rgba(255, 113, 206, 0.6);
+}
+
+/* Аватар отключен */
+.no-avatar {
+  display: none !important;
+}
+
+.emoticon {
+  height: 1.5em;
+  width: auto;
+  margin-bottom: -0.4em;
+}
+
+.username {
+  display: inline-block;
+  margin: 0 0.35em 0 0;
+  letter-spacing: 0.03em;
+}
+
+/* Градиентное имя */
+.username.grad-name {
+  background: linear-gradient(90deg, #FF71CE 0%, #B967FF 55%, #01CDCD 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  filter: drop-shadow(0 0 calc(var(--glow) * 1px) rgba(255, 113, 206, 0.55));
+}
+
+.text-message,
+.text-message a {
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 0.02em;
+}
+
+.text-message.reply {
+  color: #01CDCD !important;
+  text-shadow: 0 0 calc(var(--glow) * 1.2px) rgba(1, 205, 205, 0.8) !important;
+}
+
+.text-message.highlighted {
+  background: linear-gradient(90deg, rgba(255, 113, 206, 0.25), rgba(1, 205, 205, 0.25));
+  border: 1px solid var(--accent-weak, rgba(255, 113, 206, 0.6));
+  color: #FFF;
+}
+
+/* Изображения отключены */
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+/* Текст удаленного сообщения */
+.text-message.deleted {
+  color: rgba(220, 200, 255, 0.4) !important;
+  text-decoration: line-through;
+  text-shadow: none !important;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 113, 206, 0.4);
+}
+
+:root {
+  --font: 'Audiowide', 'Play', Arial, sans-serif;
+  --font-weight: 400;
+  --glow: 4;
+}
+
+/* События Live */
+.live_event {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.4em;
+  padding: 0.35em 0.8em;
+  color: #01CDCD;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 calc(var(--glow) * 1.2px) rgba(1, 205, 205, 0.8);
+}
+
+/* ==== Настройки v1.1: размер и форма аватаров, время сообщений ==== */
+.avatar img {
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+}
+
+.timestamp {
+  color: var(--accent, #FF71CE);
+  opacity: 0.7;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+  flex: 0 0 auto;
+}
