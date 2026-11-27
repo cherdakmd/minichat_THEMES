@@ -1,0 +1,675 @@
+{
+  "Icon": "icon.svg",
+  "Language": {
+    "Culture": "ru-RU"
+  },
+  "Name": "Сакура",
+  "Properties": {
+    "HideMessages": {
+      "Type": "Slider",
+      "Label": "Скрывать сообщения через (секунд)",
+      "Value": 30,
+      "Min": 0,
+      "Max": 120
+    },
+    "MaxMessages": {
+      "Type": "Slider",
+      "Label": "Максимум сообщений",
+      "Value": 8,
+      "Min": 1,
+      "Max": 50
+    },
+    "DeleteMessageText": {
+      "Type": "Text",
+      "Label": "Текст удаленного сообщения",
+      "Value": "[Сообщение удалено]"
+    },
+    "ShowEffect": {
+      "Type": "Select",
+      "Label": "Эффект появления",
+      "Value": "fadeInUp",
+      "Enumerate": [
+        {
+          "Value": "null",
+          "Label": "Без анимации"
+        },
+        {
+          "Value": "bounce",
+          "Label": "Bounce"
+        },
+        {
+          "Value": "flash",
+          "Label": "Flash"
+        },
+        {
+          "Value": "pulse",
+          "Label": "Pulse"
+        },
+        {
+          "Value": "rubberBand",
+          "Label": "Rubber Band"
+        },
+        {
+          "Value": "shakeX",
+          "Label": "Shake X"
+        },
+        {
+          "Value": "shakeY",
+          "Label": "Shake Y"
+        },
+        {
+          "Value": "headShake",
+          "Label": "Head Shake"
+        },
+        {
+          "Value": "swing",
+          "Label": "Swing"
+        },
+        {
+          "Value": "tada",
+          "Label": "Tada"
+        },
+        {
+          "Value": "wobble",
+          "Label": "Wobble"
+        },
+        {
+          "Value": "jello",
+          "Label": "Jello"
+        },
+        {
+          "Value": "heartBeat",
+          "Label": "Heart Beat"
+        },
+        {
+          "Value": "backInDown",
+          "Label": "Back In Up"
+        },
+        {
+          "Value": "backInLeft",
+          "Label": "Back In Left"
+        },
+        {
+          "Value": "backInRight",
+          "Label": "Back In Right"
+        },
+        {
+          "Value": "backInUp",
+          "Label": "Back In Up"
+        },
+        {
+          "Value": "bounceIn",
+          "Label": "Bounce In"
+        },
+        {
+          "Value": "bounceInDown",
+          "Label": "Bounce In Down"
+        },
+        {
+          "Value": "bounceInLeft",
+          "Label": "Bounce In Left"
+        },
+        {
+          "Value": "bounceInRight",
+          "Label": "Bounce In Right"
+        },
+        {
+          "Value": "bounceInUp",
+          "Label": "Bounce In Up"
+        },
+        {
+          "Value": "fadeIn",
+          "Label": "Fade In"
+        },
+        {
+          "Value": "fadeInDown",
+          "Label": "Fade In Down"
+        },
+        {
+          "Value": "fadeInDownBig",
+          "Label": "Fade In Down Big"
+        },
+        {
+          "Value": "fadeInLeft",
+          "Label": "Fade In Left"
+        },
+        {
+          "Value": "fadeInLeftBig",
+          "Label": "Fade In Left Big"
+        },
+        {
+          "Value": "fadeInRight",
+          "Label": "Fade In Right"
+        },
+        {
+          "Value": "fadeInRightBig",
+          "Label": "Fade In Right Big"
+        },
+        {
+          "Value": "fadeInUp",
+          "Label": "Fade In Up"
+        },
+        {
+          "Value": "fadeInUpBig",
+          "Label": "Fade In Up Big"
+        },
+        {
+          "Value": "flip",
+          "Label": "Flip"
+        },
+        {
+          "Value": "flipInX",
+          "Label": "Flip In X"
+        },
+        {
+          "Value": "flipInY",
+          "Label": "FlipInY"
+        },
+        {
+          "Value": "lightSpeedInRight",
+          "Label": "Light Speed In Right"
+        },
+        {
+          "Value": "lightSpeedInLeft",
+          "Label": "Light Speed In Left"
+        },
+        {
+          "Value": "rotateIn",
+          "Label": "Rotate In"
+        },
+        {
+          "Value": "rotateInDownLeft",
+          "Label": "Rotate In Down Left"
+        },
+        {
+          "Value": "rotateInDownRight",
+          "Label": "Rotate In Down Right"
+        },
+        {
+          "Value": "rotateInUpLeft",
+          "Label": "Rotate In Up Left"
+        },
+        {
+          "Value": "rotateInUpRight",
+          "Label": "Rotate In Up Right"
+        },
+        {
+          "Value": "jackInTheBox",
+          "Label": "Jack In The Box"
+        },
+        {
+          "Value": "rollIn",
+          "Label": "Roll In"
+        },
+        {
+          "Value": "zoomIn",
+          "Label": "Zoom In"
+        },
+        {
+          "Value": "zoomInDown",
+          "Label": "Zoom In Down"
+        },
+        {
+          "Value": "zoomInLeft",
+          "Label": "Zoom In Left"
+        },
+        {
+          "Value": "zoomInRight",
+          "Label": "Zoom In Right"
+        },
+        {
+          "Value": "zoomInUp",
+          "Label": "Zoom In Up"
+        },
+        {
+          "Value": "slideInDown",
+          "Label": "Slide In Down"
+        },
+        {
+          "Value": "slideInLeft",
+          "Label": "Slide In Left"
+        },
+        {
+          "Value": "slideInRight",
+          "Label": "Slide In Right"
+        },
+        {
+          "Value": "slideInUp",
+          "Label": "Slide In Up"
+        }
+      ]
+    },
+    "HideEffect": {
+      "Type": "Select",
+      "Label": "Эффект исчезновения",
+      "Value": "fadeOutDown",
+      "Enumerate": [
+        {
+          "Value": "backOutDown",
+          "Label": "Back Out Down"
+        },
+        {
+          "Value": "backOutLeft",
+          "Label": "Back Out Left"
+        },
+        {
+          "Value": "backOutRight",
+          "Label": "Back Out Right"
+        },
+        {
+          "Value": "backOutUp",
+          "Label": "Back Out Up"
+        },
+        {
+          "Value": "bounceOut",
+          "Label": "Bounce Out"
+        },
+        {
+          "Value": "bounceOutDown",
+          "Label": "Bounce Out Down"
+        },
+        {
+          "Value": "bounceOutLeft",
+          "Label": "Bounce Out Left"
+        },
+        {
+          "Value": "bounceOutRight",
+          "Label": "Bounce Out Right"
+        },
+        {
+          "Value": "bounceOutUp",
+          "Label": "Bounce Out Up"
+        },
+        {
+          "Value": "fadeOut",
+          "Label": "Fade Out"
+        },
+        {
+          "Value": "fadeOutDown",
+          "Label": "Fade Out Down"
+        },
+        {
+          "Value": "fadeOutDownBig",
+          "Label": "Fade Out Down Big"
+        },
+        {
+          "Value": "fadeOutLeft",
+          "Label": "Fade Out Left"
+        },
+        {
+          "Value": "fadeOutLeftBig",
+          "Label": "Fade Out Left Big"
+        },
+        {
+          "Value": "fadeOutRight",
+          "Label": "Fade Out Right"
+        },
+        {
+          "Value": "fadeOutRightBig",
+          "Label": "Fade Out Right Big"
+        },
+        {
+          "Value": "fadeOutUp",
+          "Label": "Fade Out Up"
+        },
+        {
+          "Value": "fadeOutUpBig",
+          "Label": "Fade Out Up Big"
+        },
+        {
+          "Value": "flipOutX",
+          "Label": "Flip Out X"
+        },
+        {
+          "Value": "flipOutY",
+          "Label": "Flip Out Y"
+        },
+        {
+          "Value": "lightSpeedOutRight",
+          "Label": "Light Speed Out Right"
+        },
+        {
+          "Value": "lightSpeedOutLeft",
+          "Label": "Light Speed Out Left"
+        },
+        {
+          "Value": "rotateOut",
+          "Label": "Rotate Out"
+        },
+        {
+          "Value": "rotateOutDownLeft",
+          "Label": "Rotate Out Down Left"
+        },
+        {
+          "Value": "rotateOutDownRight",
+          "Label": "Rotate Out Down Right"
+        },
+        {
+          "Value": "rotateOutUpLeft",
+          "Label": "Rotate Out Up Left"
+        },
+        {
+          "Value": "rotateOutUpRight",
+          "Label": "Rotate Out Up Right"
+        },
+        {
+          "Value": "hinge",
+          "Label": "Hinge"
+        },
+        {
+          "Value": "rollOut",
+          "Label": "Roll Out"
+        },
+        {
+          "Value": "zoomOut",
+          "Label": "Zoom Out"
+        },
+        {
+          "Value": "zoomOutDown",
+          "Label": "Zoom Out Down"
+        },
+        {
+          "Value": "zoomOutLeft",
+          "Label": "Zoom Out Left"
+        },
+        {
+          "Value": "zoomOutRight",
+          "Label": "Zoom Out Right"
+        },
+        {
+          "Value": "zoomOutUp",
+          "Label": "Zoom Out Up"
+        },
+        {
+          "Value": "slideOutDown",
+          "Label": "Slide Out Down"
+        },
+        {
+          "Value": "slideOutLeft",
+          "Label": "Slide Out Left"
+        },
+        {
+          "Value": "slideOutRight",
+          "Label": "Slide Out Right"
+        },
+        {
+          "Value": "slideOutUp",
+          "Label": "Slide Out Up"
+        }
+      ]
+    },
+    "TextSize": {
+      "Type": "Slider",
+      "Label": "Размер текста",
+      "Value": 17,
+      "Min": 5,
+      "Max": 72,
+      "Step": 1
+    },
+    "Font": {
+      "Type": "Font",
+      "Label": "Шрифт"
+    },
+    "Color": {
+      "Type": "Color",
+      "Label": "Цвет текста",
+      "Value": "#4A2B3A"
+    },
+    "ColorUserName": {
+      "Type": "Color",
+      "Label": "Цвет имени",
+      "Value": "#E85D8A"
+    },
+    "UseColorUserName": {
+      "Type": "Toggle",
+      "Label": "Использовать оригинальный цвет имени",
+      "Value": false
+    },
+    "ShowServiceIcons": {
+      "Type": "Toggle",
+      "Label": "Показывать иконки сервисов",
+      "Value": true
+    },
+    "ShowAvatars": {
+      "Type": "Toggle",
+      "Label": "Показывать аватары",
+      "Value": true
+    },
+    "ShowBadges": {
+      "Type": "Toggle",
+      "Label": "Показывать значки",
+      "Value": true
+    },
+    "ShowLive": {
+      "Type": "Toggle",
+      "Label": "Показывать \"Live\" события",
+      "Value": true
+    },
+    "EnablePetals": {
+      "Type": "Toggle",
+      "Label": "Лепестки сакуры на фоне",
+      "Value": true
+    },
+    "PetalAmount": {
+      "Type": "Slider",
+      "Label": "Количество лепестков",
+      "Value": 6,
+      "Min": 1,
+      "Max": 10
+    },
+    "ShowZenLine": {
+      "Type": "Toggle",
+      "Label": "Декоративная веточка",
+      "Value": true
+    },
+    "BorderRadius": {
+      "Type": "Slider",
+      "Label": "Скругление краёв (px)",
+      "Value": 18,
+      "Min": 0,
+      "Max": 30
+    },
+    "BorderWidth": {
+      "Type": "Slider",
+      "Label": "Толщина рамки (px)",
+      "Value": 1,
+      "Min": 0,
+      "Max": 8
+    },
+    "BackgroundColor": {
+      "Type": "Color",
+      "Label": "Цвет подложки сообщений",
+      "Value": "#FFFFFF"
+    },
+    "BackgroundOpacity": {
+      "Type": "Slider",
+      "Label": "Плотность подложки (%)",
+      "Value": 78,
+      "Min": 0,
+      "Max": 100
+    },
+    "AccentColor": {
+      "Type": "Color",
+      "Label": "Акцентный цвет",
+      "Value": "#E85D8A"
+    },
+    "TextShadow": {
+      "Type": "Select",
+      "Label": "Тень текста",
+      "Value": "none",
+      "Enumerate": [
+        {
+          "Value": "none",
+          "Label": "Без тени"
+        },
+        {
+          "Value": "soft",
+          "Label": "Мягкая"
+        },
+        {
+          "Value": "hard",
+          "Label": "Жёсткая (пиксельная)"
+        },
+        {
+          "Value": "glow",
+          "Label": "Свечение"
+        },
+        {
+          "Value": "outline",
+          "Label": "Обводка"
+        }
+      ]
+    },
+    "TextShadowColor": {
+      "Type": "Color",
+      "Label": "Цвет тени текста",
+      "Value": "#FFB7C5"
+    },
+    "ShowTimestamps": {
+      "Type": "Toggle",
+      "Label": "Показывать время сообщения",
+      "Value": false
+    },
+    "Padding": {
+      "Type": "Slider",
+      "Label": "Отступ внутри сообщений (px)",
+      "Value": 11,
+      "Min": 0,
+      "Max": 24
+    },
+    "FontWeight": {
+      "Type": "Select",
+      "Label": "Насыщенность шрифта",
+      "Value": "normal",
+      "Enumerate": [
+        {
+          "Value": "normal",
+          "Label": "Обычный"
+        },
+        {
+          "Value": "bold",
+          "Label": "Жирный"
+        }
+      ]
+    },
+    "LetterSpacing": {
+      "Type": "Slider",
+      "Label": "Межбуквенный интервал (px)",
+      "Value": 0,
+      "Min": 0,
+      "Max": 6
+    },
+    "AnimationSpeed": {
+      "Type": "Slider",
+      "Label": "Длительность анимации (мс)",
+      "Value": 700,
+      "Min": 100,
+      "Max": 3000,
+      "Step": 50
+    },
+    "AvatarSize": {
+      "Type": "Slider",
+      "Label": "Размер аватара (%)",
+      "Value": 100,
+      "Min": 50,
+      "Max": 200
+    },
+    "AvatarShape": {
+      "Type": "Select",
+      "Label": "Форма аватара",
+      "Value": "round",
+      "Enumerate": [
+        {
+          "Value": "round",
+          "Label": "Круглая"
+        },
+        {
+          "Value": "rounded",
+          "Label": "Скруглённая"
+        },
+        {
+          "Value": "square",
+          "Label": "Квадратная"
+        }
+      ]
+    },
+    "MaxWidth": {
+      "Type": "Slider",
+      "Label": "Максимальная ширина сообщений (%)",
+      "Value": 100,
+      "Min": 40,
+      "Max": 100
+    },
+    "GlitchDonations": {
+      "Type": "Toggle",
+      "Label": "Глитч-эффект донатов",
+      "Value": true
+    },
+    "ShakeOnDonation": {
+      "Type": "Toggle",
+      "Label": "Трясти экран при донате",
+      "Value": false
+    },
+    "ShowConfetti": {
+      "Type": "Toggle",
+      "Label": "Конфетти при донатах",
+      "Value": true
+    },
+    "EnableSound": {
+      "Type": "Toggle",
+      "Label": "Звук при донатах и событиях",
+      "Value": false
+    },
+    "SoundVolume": {
+      "Type": "Slider",
+      "Label": "Громкость звука (%)",
+      "Value": 70,
+      "Min": 0,
+      "Max": 100
+    },
+    "SoundScheme": {
+      "Type": "Select",
+      "Label": "Звуковая схема",
+      "Value": "bubble",
+      "Enumerate": [
+        {
+          "Value": "classic",
+          "Label": "Классика"
+        },
+        {
+          "Value": "retro",
+          "Label": "Ретро (8-bit)"
+        },
+        {
+          "Value": "bubble",
+          "Label": "Пузырьки"
+        },
+        {
+          "Value": "crystal",
+          "Label": "Кристалл"
+        },
+        {
+          "Value": "spooky",
+          "Label": "Хоррор"
+        }
+      ]
+    },
+    "AutoNameColor": {
+      "Type": "Toggle",
+      "Label": "Автоцвет ника (по имени)",
+      "Value": false
+    },
+    "EnableSnow": {
+      "Type": "Toggle",
+      "Label": "Снегопад на фоне",
+      "Value": false
+    },
+    "SnowAmount": {
+      "Type": "Slider",
+      "Label": "Плотность снега",
+      "Value": 5,
+      "Min": 1,
+      "Max": 10
+    }
+  }
+}

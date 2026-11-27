@@ -461,6 +461,7 @@
     "DisplayConsoleCursor": "Display console cursor",
     "ShowLive": "Показывать \"Live\" события",
     "GlitchDonations": "Glitch effect on donations",
+    "ShakeOnDonation": "Shake screen on donation",
     "ShowConfetti": "Confetti on donations",
     "EnableSound": "Sound on donations and events",
     "SoundVolume": "Sound volume",
@@ -482,6 +483,10 @@
         {
           "Value": "crystal",
           "Label": "Crystal"
+        },
+        {
+          "Value": "spooky",
+          "Label": "Spooky"
         }
       ]
     },

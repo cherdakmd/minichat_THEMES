@@ -610,6 +610,11 @@
       "Label": "Глитч-эффект донатов",
       "Value": true
     },
+    "ShakeOnDonation": {
+      "Type": "Toggle",
+      "Label": "Трясти экран при донате",
+      "Value": false
+    },
     "ShowConfetti": {
       "Type": "Toggle",
       "Label": "Конфетти при донатах",
@@ -647,6 +652,10 @@
         {
           "Value": "crystal",
           "Label": "Кристалл"
+        },
+        {
+          "Value": "spooky",
+          "Label": "Хоррор"
         }
       ]
     },

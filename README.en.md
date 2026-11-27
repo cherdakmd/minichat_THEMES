@@ -6,7 +6,7 @@
 
 *Every theme is a self-contained folder: drop it into `Themes` → add a Browser Source in OBS → go live.*
 
-![themes](https://img.shields.io/badge/themes-14-4F8CFF?style=for-the-badge)
+![themes](https://img.shields.io/badge/themes-16-4F8CFF?style=for-the-badge)
 ![effects](https://img.shields.io/badge/ThemeFX-effects-B967FF?style=for-the-badge)
 ![cyrillic](https://img.shields.io/badge/cyrillic-yes-43AA8B?style=for-the-badge)
 ![license](https://img.shields.io/badge/license-MIT-F5A623?style=for-the-badge)
@@ -34,6 +34,8 @@
 | <img src="Cyberpunk/icon.svg" width="56"> | **Cyberpunk** | Night City | RGB glitch title, cut-corner cards, scanline sweep, skewed rows |
 | <img src="Halloween/icon.svg" width="56"> | **Halloween** | 🎃 spooky season | canvas bats on the background, mystic fog, Neucha font, pumpkin live events |
 | <img src="NewYear/icon.svg" width="56"> | **New Year** | 🎄 festive | blinking garland, snow on by default, canvas fireworks, "Happy New Year!" header, Yeseva One font |
+| <img src="Neubrutalism/icon.svg" width="56"> | **Neubrutalism** | bold trend | yellow cards with black borders and hard shadows, pink accents, adjustable shadow size |
+| <img src="Sakura/icon.svg" width="56"> | **Sakura** | 🌸 Japanese spring | canvas sakura petals, decorative branch, rounded Comfortaa font, soft pink cards |
 | <img src="Dos/icon.svg" width="56"> | **DOS** | classic | the original theme — format reference (FixedSys Excelsior, typed.js) |
 
 > Every theme ships **30+ settings** right in Minichat: corner rounding, text shadows
@@ -51,7 +53,9 @@ A shared effects engine built into every theme:
 - 🌈 **Name hash color** — deterministic per-nickname color, like Twitch
 - ❄️ **Snowfall** — canvas background for any theme
 - 🦇 **Bats** and 🎆 **fireworks** — seasonal canvas effects
-- 🎵 **4 sound schemes** — Classic, Retro (8-bit), Bubbles, Crystal (configurable per theme)
+- 🌸 **Sakura petals** — slowly drifting in any theme
+- 🫨 **Screen shake** on donations (toggle)
+- 🎵 **5 sound schemes** — Classic, Retro (8-bit), Bubbles, Crystal, Spooky
 - Plus theme-specific: stars & meteors in Space, static noise in CRT, glitch title in Cyberpunk
 
 ## ⬇️ Download
@@ -80,6 +84,7 @@ python3 preview/serve.py
 - Tweak any setting (sliders, colors, toggles) and see changes **instantly**;
 - **🎲 Random** — randomize the style in one click;
 - **⬇️ manifest.json** — download your tuned config and drop it into the theme folder;
+- **📥 Import** — load an existing manifest.json (button or drag & drop) and keep editing in the browser;
 - **🔗 Preset link** — settings are encoded in the URL, easy to share.
 
 > `preview/stubs/` are **preview-only** mocks. Minichat ships its own `Additions/*` files.
