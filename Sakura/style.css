@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0 none;
+  vertical-align: baseline;
+}
+
+html, body {
+  background-color: transparent;
+  margin: 0px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+#widget {
+  font-size: 1.655em;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  vertical-align: bottom;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.messages {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font);
+  font-weight: var(--font-weight);
+}
+
+/* ---------- Веточка ---------- */
+.sakura-branch {
+  position: fixed;
+  top: 8px;
+  right: 12px;
+  width: 110px;
+  height: 54px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.9;
+  background:
+    radial-gradient(circle at 88% 88%, #FFB7C5 0 5px, transparent 6px),
+    radial-gradient(circle at 66% 42%, #FFC4D6 0 6px, transparent 7px),
+    radial-gradient(circle at 44% 12%, #FFB7C5 0 5px, transparent 6px),
+    radial-gradient(circle at 20% 30%, #F9A8C2 0 4px, transparent 5px);
+}
+
+.sakura-branch::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 46px;
+  width: 106px;
+  height: 30px;
+  border-top: 2px solid rgba(122, 76, 76, 0.5);
+  border-top-left-radius: 100% 100%;
+}
+
+.div_message {
+  width: var(--msgw, 100%);
+  max-width: var(--maxw, 100%);
+  border-radius: var(--radius, 18px);
+  padding: var(--pad, 11px);
+  margin-top: 5px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  position: relative;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  display: inline-table;
+  word-break: break-word;
+  background: var(--bg, rgba(255, 255, 255, 0.78));
+  border: var(--borderw, 1px) solid rgba(255, 183, 197, 0.85);
+  box-shadow: 0 4px 14px rgba(232, 93, 138, 0.14);
+}
+
+.div_message img {
+  height: 1em;
+  width: auto;
+  margin-bottom: -0.15em;
+  margin-right: 0.2em;
+}
+
+.avatar img {
+  border-radius: var(--avradius, 50%);
+  border: 2px solid rgba(255, 183, 197, 0.9);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: var(--avsize, 1em);
+  height: var(--avsize, 1em);
+}
+
+.no-avatar {
+  display: none !important;
+}
+
+.emoticon {
+  height: 1.5em;
+  width: auto;
+  margin-bottom: -0.4em;
+}
+
+.username {
+  display: inline-block;
+  margin: 0 0.3em 0 0;
+  font-weight: 700;
+}
+
+.timestamp {
+  color: var(--accent, #E85D8A);
+  opacity: 0.8;
+  margin-right: 0.3em;
+  font-size: 0.78em;
+}
+
+.text-message,
+.text-message a {
+  color: #4A2B3A;
+}
+
+.text-message.reply {
+  color: #E85D8A !important;
+}
+
+.text-message.highlighted {
+  background: #FFE0EB;
+  color: #4A2B3A;
+  box-shadow: inset 0 0 0 1px rgba(232, 93, 138, 0.5);
+  border-radius: 10px;
+  padding: 0.1em 0.35em;
+}
+
+.no-image-in-message .message-image {
+  display: none !important;
+}
+
+.text-message.deleted {
+  color: rgba(74, 43, 58, 0.4) !important;
+  text-decoration: line-through;
+}
+
+.message-image {
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 50vh;
+  border-radius: var(--radius, 18px);
+  border: 1px solid rgba(255, 183, 197, 0.85);
+}
+
+/* События Live */
+.live_event {
+  margin-top: 5px;
+  padding: var(--pad, 11px);
+  color: #C24D7B;
+  font-weight: 700;
+  background: var(--bg, rgba(255, 255, 255, 0.78));
+  border: 1px dashed rgba(232, 93, 138, 0.6);
+  border-radius: var(--radius, 18px);
+}
+
+.live_event::before {
+  content: "🌸 ";
+}
+
+:root {
+  --font: 'Comfortaa', 'Segoe UI', sans-serif;
+  --font-weight: 400;
+}

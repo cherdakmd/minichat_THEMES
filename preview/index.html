@@ -197,6 +197,7 @@
     <input class="ed-search" id="ed-search" type="text" placeholder="Поиск настройки…">
     <div class="ed-actions">
       <button class="primary" id="ed-download">⬇️ manifest.json</button>
+      <button id="ed-import" title="Импортировать manifest.json">📥 Импорт</button>
       <button id="ed-random">🎲 Рандом</button>
       <button id="ed-link">🔗 Ссылка-пресет</button>
       <button id="ed-sound-test">🔊 Тест звука</button>
@@ -231,6 +232,8 @@
     { id: 'Cyberpunk', name: 'Cyberpunk',     desc: 'глитч, срезанные углы' },
     { id: 'Halloween', name: 'Хэллоуин',      desc: 'мыши, туман, тыквы' },
     { id: 'NewYear',   name: 'Новый год',     desc: 'гирлянда, снег, фейерверки' },
+    { id: 'Neubrutalism', name: 'Neubrutalism', desc: 'жирные рамки, жёсткие тени' },
+    { id: 'Sakura',    name: 'Сакура',        desc: 'лепестки, нежность' },
     { id: 'Dos',       name: 'DOS',           desc: 'оригинальная тема' },
   ];
 
@@ -496,6 +499,65 @@
     // перерисовать значения в панели
     buildEditor();
   }
+
+  /* ---------- Импорт manifest.json ---------- */
+  function importManifestText(text) {
+    var imported;
+    try {
+      imported = JSON.parse(text);
+    } catch (e) {
+      alert('Это не валидный JSON: ' + e.message);
+      return;
+    }
+    if (!imported || !imported.Properties) {
+      alert('В файле нет секции Properties — это не manifest темы Minichat.');
+      return;
+    }
+    fetchManifest(current).then(function (m) {
+      if (!m) return;
+      var applied = 0;
+      if (!editedByTheme[current]) editedByTheme[current] = {};
+      Object.keys(imported.Properties).forEach(function (k) {
+        var ip = imported.Properties[k];
+        if (m.Properties[k] && ip && ip.Value !== undefined) {
+          editedByTheme[current][k] = ip.Value;
+          applied++;
+        }
+      });
+      postToFrame({ cmd: 'applyMany', values: editedByTheme[current] });
+      buildEditor();
+      updateHash();
+      alert('Импортировано настроек: ' + applied);
+    });
+  }
+
+  document.getElementById('ed-import').addEventListener('click', function () {
+    var inp = document.createElement('input');
+    inp.type = 'file';
+    inp.accept = '.json,application/json';
+    inp.addEventListener('change', function () {
+      var f = inp.files && inp.files[0];
+      if (!f) return;
+      var reader = new FileReader();
+      reader.onload = function () { importManifestText(String(reader.result)); };
+      reader.readAsText(f);
+    });
+    inp.click();
+  });
+
+  // Drag & drop manifest.json на панель редактора
+  var aside = document.getElementById('editor');
+  aside.addEventListener('dragover', function (e) { e.preventDefault(); aside.style.outline = '2px dashed var(--accent)'; });
+  aside.addEventListener('dragleave', function () { aside.style.outline = ''; });
+  aside.addEventListener('drop', function (e) {
+    e.preventDefault();
+    aside.style.outline = '';
+    var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (!f) return;
+    var reader = new FileReader();
+    reader.onload = function () { importManifestText(String(reader.result)); };
+    reader.readAsText(f);
+  });
 
   /* ---------- Панель управления ---------- */
   document.getElementById('backdrop').addEventListener('change', function (e) {

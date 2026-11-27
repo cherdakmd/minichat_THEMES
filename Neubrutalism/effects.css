@@ -1,0 +1,61 @@
+/* ============================================================
+   ThemeFX — стили эффектов (общие для всех тем)
+   ============================================================ */
+
+/* Canvas-слои: погода (фон) и конфетти (передний план) */
+.fx-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.fx-weather {
+  z-index: 0;
+}
+
+.fx-confetti {
+  z-index: 9999;
+}
+
+/* ---------- Глитч донатов (RGB-split + дрожание) ----------
+   Работает на строках с классом highlighted (донаты/выделенные).
+   Контейнер .messages получает .fx-glitch через MessagesClass. */
+@keyframes fx-glitch-anim {
+  0%   { text-shadow: none; transform: translate(0, 0) skewX(0); }
+  10%  { text-shadow: 2px 0 0 rgba(255, 0, 90, 0.85), -2px 0 0 rgba(0, 255, 234, 0.85); transform: translate(1px, -1px) skewX(-1.5deg); }
+  20%  { text-shadow: -3px 0 0 rgba(255, 0, 90, 0.85), 3px 0 0 rgba(0, 255, 234, 0.85); transform: translate(-2px, 1px) skewX(1.5deg); }
+  30%  { text-shadow: 2px 0 0 rgba(255, 0, 90, 0.85), -2px 0 0 rgba(0, 255, 234, 0.85); transform: translate(1px, 0) skewX(-1deg); }
+  40%  { text-shadow: none; transform: translate(0, 0) skewX(0); }
+  50%  { text-shadow: 3px 0 0 rgba(255, 0, 90, 0.8), -3px 0 0 rgba(0, 255, 234, 0.8); transform: translate(2px, -1px) skewX(2deg); }
+  60%  { text-shadow: -2px 0 0 rgba(255, 0, 90, 0.8), 2px 0 0 rgba(0, 255, 234, 0.8); transform: translate(-1px, 1px) skewX(-2deg); }
+  70%  { text-shadow: none; transform: translate(0, 0) skewX(0); }
+  80%  { text-shadow: 1px 0 0 rgba(255, 0, 90, 0.7), -1px 0 0 rgba(0, 255, 234, 0.7); transform: translate(1px, 0); }
+  100% { text-shadow: none; transform: translate(0, 0) skewX(0); }
+}
+
+.fx-glitch .text-message.highlighted:not(.deleted) {
+  animation: fx-glitch-anim 2.8s steps(2, jump-none) infinite;
+}
+
+/* ---------- Тряска экрана при донате ----------
+   Включается настройкой ShakeOnDonation; класс вешается на body. */
+@keyframes fx-shake-anim {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  10%  { transform: translate(-6px, 3px) rotate(-0.5deg); }
+  20%  { transform: translate(5px, -4px) rotate(0.4deg); }
+  30%  { transform: translate(-5px, 2px) rotate(-0.35deg); }
+  40%  { transform: translate(4px, 3px) rotate(0.3deg); }
+  50%  { transform: translate(-3px, -2px) rotate(-0.2deg); }
+  60%  { transform: translate(3px, 1px) rotate(0.15deg); }
+  70%  { transform: translate(-2px, -1px) rotate(-0.1deg); }
+  80%  { transform: translate(1px, 1px) rotate(0deg); }
+  90%  { transform: translate(-1px, 0); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+body.fx-shaking {
+  animation: fx-shake-anim 0.65s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}

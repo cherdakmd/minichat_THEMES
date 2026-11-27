@@ -140,6 +140,21 @@
 				tone(ctx, 880, 0.28, 0.3, v * 0.8, 'sine', 1320);
 			},
 		},
+		spooky: {
+			donation: function (ctx, v) {
+				// низкий зловещий свип + колокол
+				tone(ctx, 220, 0, 0.5, v * 0.9, 'sawtooth', 60);
+				tone(ctx, 233, 0.05, 0.5, v * 0.6, 'sawtooth', 63);
+				tone(ctx, 392, 0.32, 0.9, v * 0.8, 'sine');
+				tone(ctx, 196, 0.32, 0.9, v * 0.5, 'sine');
+			},
+			live: function (ctx, v) {
+				// колокольный перезвон
+				tone(ctx, 523, 0, 0.7, v * 0.7, 'sine');
+				tone(ctx, 415, 0.24, 0.7, v * 0.65, 'sine');
+				tone(ctx, 311, 0.48, 0.9, v * 0.6, 'sine');
+			},
+		},
 		crystal: {
 			donation: function (ctx, v) {
 				// хрустальные колокольчики
@@ -256,11 +271,24 @@
 		}
 	}
 
+	function shakeScreen() {
+		if (!fx.vm || fx.vm.ShakeOnDonation !== true) return;
+		var target = document.body || document.documentElement;
+		target.classList.remove('fx-shaking');
+		void target.offsetWidth; // перезапуск анимации
+		target.classList.add('fx-shaking');
+		clearTimeout(fx._shakeTimer);
+		fx._shakeTimer = setTimeout(function () {
+			target.classList.remove('fx-shaking');
+		}, 700);
+	}
+
 	function onDonation() {
 		if (fx.vm && fx.vm.ShowConfetti === false) return;
 		burst(90);
 		// второй залп для сочности
 		setTimeout(function () { burst(50); }, 180);
+		shakeScreen();
 	}
 
 	/* ---------- Погода: снег / звёзды / метеоры / мыши / фейерверки ---------- */
@@ -314,6 +342,27 @@
 					drift: rand(-0.6, 0.6),
 					phase: rand(0, Math.PI * 2),
 					opacity: rand(0.35, 0.9),
+				});
+			}
+		}
+
+		// Лепестки сакуры
+		var wantPetals = vm.EnablePetals === true;
+		if (wantPetals) {
+			var nPetals = Math.round((Number(vm.PetalAmount) || 6) * 7);
+			var petalColors = ['#FFC4D6', '#FFB7C5', '#FFD3E0', '#F9A8C2'];
+			for (var pp = 0; pp < nPetals; pp++) {
+				parts.push({
+					kind: 'petal',
+					x: rand(0, w), y: rand(0, h),
+					size: rand(4, 9),
+					speed: rand(0.7, 1.7),
+					drift: rand(-0.8, 0.8),
+					phase: rand(0, Math.PI * 2),
+					rot: rand(0, Math.PI * 2),
+					vr: rand(-0.045, 0.045),
+					color: petalColors[Math.floor(Math.random() * petalColors.length)],
+					opacity: rand(0.5, 0.9),
 				});
 			}
 		}
@@ -376,8 +425,9 @@
 			var starsOn = vm.EnableStars !== false && vm.EnableStars !== undefined;
 			var snowOn = vm.EnableSnow === true;
 			var batsOn = vm.EnableBats === true;
+			var petalsOn = vm.EnablePetals === true;
 			var fireworksOn = vm.EnableFireworks === true;
-			active = starsOn || snowOn || batsOn || fireworksOn;
+			active = starsOn || snowOn || batsOn || petalsOn || fireworksOn;
 		}
 
 		ctx.clearRect(0, 0, e.canvas.width, e.canvas.height);
@@ -394,11 +444,12 @@
 			var nStars = wantStars ? Math.round((Number(vm.StarAmount) || 5) * 24) : 0;
 			var nSnow = wantSnow ? Math.round((Number(vm.SnowAmount) || 5) * 12) : 0;
 			var nBats = wantBats ? Math.round((Number(vm.BatAmount) || 4) * 2) : 0;
-			var have = { star: 0, snow: 0, bat: 0 };
+			var nPetals = wantPetals ? Math.round((Number(vm.PetalAmount) || 6) * 7) : 0;
+			var have = { star: 0, snow: 0, bat: 0, petal: 0 };
 			for (var k = 0; k < e.parts.length; k++) {
 				have[e.parts[k].kind]++;
 			}
-			if (have.star !== nStars || have.snow !== nSnow || have.bat !== nBats) rebuildWeatherParts();
+			if (have.star !== nStars || have.snow !== nSnow || have.bat !== nBats || have.petal !== nPetals) rebuildWeatherParts();
 		}
 
 		var t = e.frame;
@@ -426,6 +477,30 @@
 				ctx.beginPath();
 				ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
 				ctx.fill();
+			} else if (p.kind === 'petal') {
+				p.y += p.speed;
+				p.x += p.drift + Math.sin((t + p.phase * 50) / 36) * 0.55;
+				p.rot += p.vr;
+				if (p.y > e.canvas.height + 12) {
+					p.y = -12;
+					p.x = rand(0, e.canvas.width);
+				}
+				if (p.x > e.canvas.width + 12) p.x = -12;
+				if (p.x < -12) p.x = e.canvas.width + 12;
+				ctx.save();
+				ctx.globalAlpha = p.opacity;
+				ctx.translate(p.x, p.y);
+				ctx.rotate(p.rot);
+				ctx.fillStyle = p.color;
+				ctx.beginPath();
+				ctx.ellipse(0, 0, p.size, p.size * 0.55, 0, 0, Math.PI * 2);
+				ctx.fill();
+				ctx.globalAlpha = p.opacity * 0.5;
+				ctx.fillStyle = '#FFF0F5';
+				ctx.beginPath();
+				ctx.ellipse(0, -p.size * 0.18, p.size * 0.4, p.size * 0.18, 0, 0, Math.PI * 2);
+				ctx.fill();
+				ctx.restore();
 			} else if (p.kind === 'bat') {
 				p.phase += p.flap;
 				p.x += p.vx;

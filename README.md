@@ -8,7 +8,7 @@
 
 **[🇬🇧 English](README.en.md)** · 🇷🇺 Русский
 
-![темы](https://img.shields.io/badge/темы-14-4F8CFF?style=for-the-badge)
+![темы](https://img.shields.io/badge/темы-16-4F8CFF?style=for-the-badge)
 ![эффекты](https://img.shields.io/badge/эффекты-ThemeFX-B967FF?style=for-the-badge)
 ![превью](https://img.shields.io/badge/превью-в_браузере-00C2CC?style=for-the-badge)
 ![кириллица](https://img.shields.io/badge/кириллица-да-43AA8B?style=for-the-badge)
@@ -36,6 +36,8 @@
 | <img src="Cyberpunk/icon.svg" width="56"> | **Cyberpunk** | Найт-Сити | глитч-заголовок с RGB-разъездом, срезанные углы карточек, сканлайн-полоса, наклон строк |
 | <img src="Halloween/icon.svg" width="56"> | **Хэллоуин** | 🎃 тыквенный стрим | летучие мыши на фоне (canvas), мистический туман, шрифт Neucha, тыквенные Live-события |
 | <img src="NewYear/icon.svg" width="56"> | **Новый год** | 🎄 праздничный | гирлянда с мерцанием, снег по умолчанию, фейерверки на canvas, заголовок «С Новым годом!», шрифт Yeseva One |
+| <img src="Neubrutalism/icon.svg" width="56"> | **Neubrutalism** | модный жирный стиль | жёлтые карточки с чёрными рамками и жёсткими тенями, розовые акценты, настраиваемый размер тени |
+| <img src="Sakura/icon.svg" width="56"> | **Сакура** | 🌸 японская весна | лепестки сакуры на canvas, декоративная веточка, округлый шрифт Comfortaa, нежные розовые карточки |
 | <img src="Dos/icon.svg" width="56"> | **DOS** | классика | оригинальная тема — эталон формата (FixedSys Excelsior, typed.js) |
 
 > У каждой темы **30+ настроек** прямо в Minichat: скругление краёв, тень текста
@@ -53,7 +55,9 @@
 - 🌈 **Автоцвет ника** — детерминированный цвет по хешу имени (как в Twitch)
 - ❄️ **Снегопад** — canvas-фон в любой теме
 - 🦇 **Летучие мыши** и 🎆 **фейерверки** — сезонные canvas-эффекты
-- 🎵 **4 звуковые схемы** — Классика, Ретро (8-bit), Пузырьки, Кристалл (настраиваются в каждой теме)
+- 🌸 **Лепестки сакуры** — медленно кружатся в любой теме
+- 🫨 **Тряска экрана** при донате (включается тумблером)
+- 🎵 **5 звуковых схем** — Классика, Ретро (8-bit), Пузырьки, Кристалл, Хоррор
 - Плюс фирменные: звёзды и метеоры в Космосе, помехи в CRT, глитч-заголовок в Cyberpunk
 
 ## ⬇️ Скачать
@@ -81,6 +85,8 @@ Live-события, пауза/скорость и смена фона (тём�
 - **🎲 Рандом** — случайный стиль за один клик;
 - **⬇️ manifest.json** — скачивает файл с твоими значениями: положи его в папку
   темы вместо старого, и Minichat подхватит настройки;
+- **📥 Импорт** — загрузи существующий manifest.json (кнопкой или drag&drop в
+  панель) и продолжь правку в браузере;
 - **🔗 Ссылка-пресет** — настройки кодируются в URL, удобно делиться конфигом.
 
 ```bash
@@ -123,6 +129,8 @@ python3 preview/serve.py
 | Balsamiq Sans | Комикс | SIL OFL (@fontsource) |
 | Neucha | Хэллоуин | SIL OFL (@fontsource) |
 | Yeseva One + Play | Новый год | SIL OFL (@fontsource) |
+| Rubik | Neubrutalism | SIL OFL (@fontsource) |
+| Comfortaa | Сакура | SIL OFL (@fontsource) |
 | Monocraft | Minecraft | SIL OFL ([Monocraft](https://github.com/IdreesInc/Monocraft)) |
 
 Шрифты подключены через `@font-face` c `unicode-range` — кириллица поддерживается
